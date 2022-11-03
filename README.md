@@ -4,10 +4,10 @@ This is my personnal dotfiles.
 
 ## Technologies
 
-> WM: `i3`
+> WM: `i3 gaps`
 >
-> OS: `Manjaro`
+> OS: `EndeavourOs`
 >
 > Packet Manager: `yay`, `flatpak` and `snap`
 >
-> Other: `compton` and `thunar`
+> Other: `picom jonaburg_fix` ([here](https://github.com/Arian8j2/picom-jonaburg-fix)), `polybar` and `rofi`
