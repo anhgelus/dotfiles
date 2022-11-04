@@ -34,6 +34,7 @@ gaps outer 3
 
 # show window title bars (not officially supported with i3gaps)
 #default_border normal
+default_border pixel 0
 
 # window title alignment
 #title_align center
@@ -545,7 +546,7 @@ bindsym $mod+t exec rofi -show window \
 #exec --no-startup-id greenclip daemon>/dev/null
 #bindsym $mod+c exec --no-startup-id rofi -modi "clipboard:greenclip print" -show clipboard \
 #		-config ~/.config/rofi/rofidmenu.rasi
-exec_always --no-startup-id xrandr --output DP-0 --off --output DP-1 --off --output DP-2 --off --output DP-3 --off --output HDMI-0 -r 144.00 --primary --mode 1920x1080 --pos 0x0 --rotate normal --output DP-4 --off --output DP-5 --mode 1920x1080 --pos 1920x0 --rotate normal
+exec_always --no-startup-id xrandr --output DP-0 --off --output DP-1 --off --output DP-2 --off --output DP-3 --off --output HDMI-0 -r 144.00 --primary --mode 1920x1080 --pos 0x0 --rotate normal --output DP-4 --off --output DP-5 -r 74.97 --mode 1920x1080 --pos 1920x0 --rotate normal
 
 # Polybar
 exec_always --no-startup-id killall -q polybar
