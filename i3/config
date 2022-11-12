@@ -283,9 +283,10 @@ workspace $ws10 output DP-5
 
 # bind program to workspace and focus to them on startup:
 assign [class="alacritty"] $ws1
-assign [class="(?i)firefox"] $ws2
-assign [class="discord"] $ws3
+assign [class="(?i)firefox"] $ws3
+assign [class="discord"] $ws4
 assign [class="Spotify"] $ws10
+assign [class="spotify"] $ws10
 assign [class="jetbrains-phpstorm"] $ws1
 assign [class="jetbrains-goland"] $ws1
 assign [class="jetbrains-idea"] $ws1
