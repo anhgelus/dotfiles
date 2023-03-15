@@ -35,7 +35,7 @@ Every tag of this repository must follow these guidelines:
 
 ## Technologies
 
-> WM: `i3 gaps`
+> WM: `i3`
 >
 > Lockscreen: `LightDM`
 >
