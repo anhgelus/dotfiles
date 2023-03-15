@@ -33,9 +33,7 @@ Every tag of this repository must follow these guidelines:
 
 `15.1-march-2023` is for the second version of the 03/15/2023 (MM-DD-YYYY) or 15/03/2023 (DD-MM-YYYY)
 
-
 ## Technologies
-
 
 > WM: `i3 gaps`
 >
