@@ -1,6 +1,6 @@
-cp $HOME/dotfiles/polybar/config.ini $HOME/.config/polybar/config.ini
-cp $HOME/dotfiles/i3/config $HOME/.config/i3/config
-cp $HOME/dotfiles/picom/picom.conf $HOME/.config/picom/picom.conf
+cp $HOME/dotfiles/config/polybar/config.ini $HOME/.config/polybar/config.ini
+cp $HOME/dotfiles/config/i3/config $HOME/.config/i3/config
+cp $HOME/dotfiles/config/picom/picom.conf $HOME/.config/picom/picom.conf
 
 # Install yay
 git clone https://aur.archlinux.org/yay.git
