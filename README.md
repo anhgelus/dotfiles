@@ -6,6 +6,8 @@ This is my personnal dotfiles.
 
 > WM: `i3 gaps`
 >
+> Lockscreen: `LightDM`
+>
 > OS: `EndeavourOs`
 >
 > Packet Manager: `yay`, `flatpak` and `snap`
