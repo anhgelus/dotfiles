@@ -18,7 +18,24 @@ sh install.sh
 4. Put your desktop wallpaper inside `~/Images/wallpapers/wallpaper.jpg` and your LightDM wallpaper inside `/usr/share/anhgelus/lightdm-wallpaper.jpg`
 5. Restart and it works!
 
+
+## Versioning
+
+The versioning of this repository do not follow the semver because the semver is just useless for this usage.
+
+Every tag of this repository must follow these guidelines:
+1. DD[.patch]-month-YYYY
+2. "[\*]" is not a required part
+3. "DD" is for the day (number)
+4. "path" is for the path number
+5. "month" is for the month (full letters)
+6. "YYYY" is for the year (number"
+
+`15.1-march-2023` is for the second version of the 03/15/2023 (MM-DD-YYYY) or 15/03/2023 (DD-MM-YYYY)
+
+
 ## Technologies
+
 
 > WM: `i3 gaps`
 >
