@@ -16,15 +16,20 @@ Plugin 'godlygeek/tabular'
 " Plugin 'preservim/vim-markdown'
 Plugin 'vim-pandoc/vim-pandoc'
 Plugin 'vim-pandoc/vim-pandoc-syntax'
+Plugin 'WolfgangMehner/latex-support'
 
 
 call vundle#end()            " required
 filetype plugin indent on    " required
 
 set number relativenumber
-nnoremap <C-Left> :tabprevious<CR>                                                                            
+
+nnoremap <C-Left> :tabprevious<CR>
 nnoremap <C-Right> :tabnext<CR>
-nnoremap <C-j> :tabprevious<CR>                                                                            
+nnoremap <C-j> :tabprevious<CR>
 nnoremap <C-k> :tabnext<CR>
+nnoremap <C-q> :tabclose<CR>
+
+:command Ttp !pdflatex %:t
 
 set shell=/bin/bash
