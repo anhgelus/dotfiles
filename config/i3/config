@@ -247,7 +247,7 @@ bindsym XF86AudioPrev exec playerctl previous
 bindsym $mod+p exec /usr/local/bin/switch-audio-port
 
 ## App shortcuts
-bindsym $mod+w exec /usr/bin/firefox
+bindsym $mod+w exec /usr/bin/vivaldi-stable
 bindsym $mod+n exec /usr/bin/thunar
 
 # Power Profiles menu switcher (rofi)
@@ -284,6 +284,7 @@ workspace $ws10 output DP-5
 # bind program to workspace and focus to them on startup:
 assign [class="alacritty"] $ws1
 assign [class="(?i)firefox"] $ws3
+assign [class="Vivaldi-stable"] $ws3
 assign [class="discord"] $ws4
 assign [class="Spotify"] $ws10
 assign [class="spotify"] $ws10
@@ -360,7 +361,7 @@ exec --no-startup-id dex --autostart --environment i3
 
 # set wallpaper
 #exec --no-startup-id sleep 2 && nitrogen --restore
-exec_always --no-startup-id feh --bg-fill ~/Images/wallpapers/wallpaper.jpg
+exec_always --no-startup-id feh --bg-fill ~/Images/wallpapers/tlou2-ellie-guitar-tree.jpg
 
 # set powersavings for display:
 exec --no-startup-id xset s 480 dpms 600 600 600
@@ -555,18 +556,18 @@ exec_always --no-startup-id killall -q polybar
 exec_always --no-startup-id sleep 1 && polybar main
 exec_always --no-startup-id sleep 1 && polybar external
 
-exec_always --no-startup-id picom
+exec_always --no-startup-id picom --config ~/.config/picom/picom.conf
 
 # run applications
 exec snap run discord
 exec spotify
-exec firefox
+exec vivaldi-stable 
 
 # Commands for screenshot
 # Screenshot
-bindsym Print exec --no-startup-id maim "/home/$USER/Pictures/$(date)"
-bindsym $mod+Print exec --no-startup-id maim --window $(xdotool getactivewindow) "/home/$USER/Pictures/$(date)"
-bindsym Shift+Print exec --no-startup-id maim --select "/home/$USER/Pictures/$(date)"
+bindsym Print exec --no-startup-id maim "/home/$USER/Images/$(date).png"
+bindsym $mod+Print exec --no-startup-id maim --window $(xdotool getactivewindow) "/home/$USER/Images/$(date).png"
+bindsym Shift+Print exec --no-startup-id maim --select "/home/$USER/Images/$(date).png"
 
 ## Clipboard Screenshots
 bindsym Ctrl+Print exec --no-startup-id maim | xclip -selection clipboard -t image/png

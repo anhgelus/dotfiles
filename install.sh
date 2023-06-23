@@ -3,6 +3,7 @@ dotfiles=$HOMES/dotfiles
 cp $dotfiles/config/polybar/config.ini $HOME/.config/polybar/config.ini
 cp $dotfiles/config/i3/config $HOME/.config/i3/config
 cp $dotfiles/config/picom/picom.conf $HOME/.config/picom/picom.conf
+cp $dotfiles/config/nvim/init.vim $HOME/.config/nvim/init.vim 
 sudo cp $dotfiles/etc/lightdm/slick-greeter.conf /etc/lightdm/slick-greeter.conf
 
 # Install yay
@@ -28,6 +29,7 @@ mkdir -p $HOME/.vim/colors $HOME/.vim/autoload
 git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
 # Install all vim plugins
 vim +PluginInstall +qall
+nvim +PluginInstall +qall
 
 # Install vim theme
 curl https://raw.githubusercontent.com/joshdick/onedark.vim/main/colors/onedark.vim > $HOME/.vim/colors/onedark.vim
