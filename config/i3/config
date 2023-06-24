@@ -559,9 +559,9 @@ exec_always --no-startup-id sleep 1 && polybar external
 exec_always --no-startup-id picom --config ~/.config/picom/picom.conf
 
 # run applications
-exec snap run discord
 exec spotify
 exec vivaldi-stable 
+exec flatpak run com.discordapp.Discord
 
 # Commands for screenshot
 # Screenshot
