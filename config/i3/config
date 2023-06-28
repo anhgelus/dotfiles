@@ -556,7 +556,8 @@ exec_always --no-startup-id killall -q polybar
 exec_always --no-startup-id sleep 1 && polybar main
 exec_always --no-startup-id sleep 1 && polybar external
 
-exec_always --no-startup-id picom --config ~/.config/picom/picom.conf
+exec_always --no-startup-id killall -q picom
+exec_always --no-startup-id sleep 3 && picom --config ~/.config/picom/picom.conf
 
 # run applications
 exec spotify
@@ -568,7 +569,7 @@ exec flatpak run com.discordapp.Discord
 bindsym Print exec --no-startup-id maim "/home/$USER/Images/$(date).png"
 bindsym $mod+Print exec --no-startup-id maim --window $(xdotool getactivewindow) "/home/$USER/Images/$(date).png"
 bindsym Shift+Print exec --no-startup-id maim --select "/home/$USER/Images/$(date).png"
-
+ 
 ## Clipboard Screenshots
 bindsym Ctrl+Print exec --no-startup-id maim | xclip -selection clipboard -t image/png
 bindsym Ctrl+$mod+Print exec --no-startup-id maim --window $(xdotool getactivewindow) | xclip -selection clipboard -t image/png
