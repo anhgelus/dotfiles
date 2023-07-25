@@ -550,8 +550,8 @@ exec_always --no-startup-id xrandr --output DP-0 --off --output DP-1 --off --out
 
 # Polybar
 exec_always --no-startup-id killall -q polybar
-exec_always --no-startup-id sleep 1 && polybar main
-exec_always --no-startup-id sleep 1 && polybar external
+exec_always --no-startup-id sleep 1 && sh $HOME/.config/polybar/colorblocks/launch-main.sh
+exec_always --no-startup-id sleep 1 && sh $HOME/.config/polybar/colorblocks/launch-external.sh
 
 exec_always --no-startup-id killall -q picom
 exec_always --no-startup-id sleep 3 && picom --config ~/.config/picom/picom.conf
