@@ -29,8 +29,8 @@ new_window pixel 1
 # hide_edge_borders both
 
 # Set inner/outer gaps
-gaps inner 20
-gaps outer -12
+gaps inner 30 
+gaps outer 0
 
 # show window title bars (not officially supported with i3gaps)
 #default_border normal
@@ -565,9 +565,9 @@ exec flatpak run com.discordapp.Discord
 # Screenshot
 bindsym Print exec --no-startup-id maim "/home/$USER/Images/$(date).png"
 bindsym $mod+Print exec --no-startup-id maim --window $(xdotool getactivewindow) "/home/$USER/Images/$(date).png"
-bindsym Shift+Print exec --no-startup-id maim --select "/home/$USER/Images/$(date).png"
+bindsym Shift+Print exec --no-startup-id maim -s -u "/home/$USER/Images/$(date).png"
  
 ## Clipboard Screenshots
 bindsym Ctrl+Print exec --no-startup-id maim | xclip -selection clipboard -t image/png
 bindsym Ctrl+$mod+Print exec --no-startup-id maim --window $(xdotool getactivewindow) | xclip -selection clipboard -t image/png
-bindsym Ctrl+Shift+Print exec --no-startup-id maim --select | xclip -selection clipboard -t image/png
+bindsym Ctrl+Shift+Print exec --no-startup-id maim -s -u | xclip -selection clipboard -t image/png -i
