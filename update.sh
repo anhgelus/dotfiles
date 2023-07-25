@@ -1,9 +1,9 @@
 dotfiles=$HOME/dotfiles
 
 # Config
-cp -r $HOME/.config/polybar/ $dotfiles/config/polybar
+cp -r $HOME/.config/polybar/ $dotfiles/config/
 cp $HOME/.config/i3/config $dotfiles/config/i3/config
-cp -r $HOME/.config/rofi $dotfiles/rofi
+cp -r $HOME/.config/rofi $dotfiles/config/
 cp $HOME/.config/picom/picom.conf $dotfiles/config/picom/picom.conf
 cp $HOME/.config/nvim/init.vim $dotfiles/config/nvim/init.vim
 cp /etc/lightdm/slick-greeter.conf $dotfiles/etc/lightdm/slick-greeter.conf
