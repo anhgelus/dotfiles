@@ -285,6 +285,7 @@ assign [class="Vivaldi-stable"] $ws3
 assign [class="discord"] $ws4
 assign [class="Spotify"] $ws10
 assign [class="spotify"] $ws10
+assign [class="Ymuse"] $ws10
 assign [class="jetbrains-phpstorm"] $ws1
 assign [class="jetbrains-goland"] $ws1
 assign [class="jetbrains-idea"] $ws1
