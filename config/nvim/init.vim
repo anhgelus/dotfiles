@@ -28,6 +28,7 @@ Plugin 'https://github.com/preservim/tagbar' " Tagbar for code navigation
 Plugin 'https://github.com/neoclide/coc.nvim' " Autocompletions 
 " Plugin 'https://github.com/terryma/vim-multiple-cursors' " CTRL + N for multiple cursors
 Plugin 'https://github.com/mattn/emmet-vim' " Emmet support
+Plugin 'rubixninja314/vim-mcfunction' " mcfunction
 
 call vundle#end()            " required
 filetype plugin indent on    " required
@@ -79,9 +80,7 @@ let g:airline_symbols.linenr = ''
 :command Ttp !pdflatex %:t
 
 "" JS/TS/Node
-:command NpmInstall !npm install
-:command TscWatch !npm run ts-watch
-:command NodemonStart !npm run start
+:command NpmInstall !pnpm i
 
 "" Git
 :command -nargs=1 -bar GitignoreCreate !curl https://www.toptal.com/developers/gitignore/api/<args> | tee -a .gitignore
@@ -94,3 +93,11 @@ let g:airline_symbols.linenr = ''
 inoremap <expr> <Tab> pumvisible() ? coc#_select_confirm() : "<Tab>"
 
 set shell=/bin/bash
+
+
+" Highlight
+augroup twig_ft
+  au!
+  autocmd BufNewFile,BufRead *.mcfunction set syntax=mcfunction
+augroup END
+
