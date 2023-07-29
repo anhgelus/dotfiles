@@ -4,6 +4,8 @@ font pango: Noto Sans Regular 10
 set $mod Mod4
 set $wallpaper = ~/Images/wallpapers/sky-like-ghibli.png
 
+exec wal -i $wallpaper 
+
 #####################
 # workspace layout: #
 #####################
@@ -309,10 +311,6 @@ exec --no-startup-id dex --autostart --environment i3
 # uncomment the next line, use arandr to setup displays and save the file as monitor:
 #exec --no-startup-id ~/.screenlayout/monitor.sh
 
-# set wallpaper
-#exec --no-startup-id sleep 2 && nitrogen --restore
-exec_always --no-startup-id feh --bg-fill $wallpaper 
-
 # set powersavings for display:
 exec --no-startup-id xset s 480 dpms 600 600 600
 
@@ -503,7 +501,6 @@ exec_always --no-startup-id sleep 3 && picom --config ~/.config/picom/picom.conf
 exec spotify
 exec vivaldi-stable 
 exec flatpak run com.discordapp.Discord
-exec wal -i $wallpaper -n 
 
 # Commands for screenshot
 # Screenshot
