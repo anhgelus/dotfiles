@@ -29,11 +29,21 @@ Plugin 'https://github.com/neoclide/coc.nvim' " Autocompletions
 " Plugin 'https://github.com/terryma/vim-multiple-cursors' " CTRL + N for multiple cursors
 Plugin 'https://github.com/mattn/emmet-vim' " Emmet support
 Plugin 'rubixninja314/vim-mcfunction' " mcfunction
+Plugin 'sirver/ultisnips'
+	let g:UltiSnipsExpandTrigger = '<tab>'
+    let g:UltiSnipsJumpForwardTrigger = '<tab>'
+    let g:UltiSnipsJumpBackwardTrigger = '<s-tab>'
+Plugin 'lervag/vimtex'
+	let g:tex_flavor='latex'
+	let g:vimtex_view_method='zathura'
+	let g:vimtex_quickfix_mode=0
+	set conceallevel=1
+	let g:tex_conceal='abdmg'
 
 call vundle#end()            " required
 filetype plugin indent on    " required
 
-:colorscheme onedark
+:colorscheme purify 
 
 :set number relativenumber
 :set autoindent
@@ -80,7 +90,9 @@ let g:airline_symbols.linenr = ''
 :command Ttp !pdflatex %:t
 
 "" JS/TS/Node
-:command NpmInstall !pnpm i
+:command NpmInstall !npm install
+:command TscWatch !npm run ts-watch
+:command NodemonStart !npm run start
 
 "" Git
 :command -nargs=1 -bar GitignoreCreate !curl https://www.toptal.com/developers/gitignore/api/<args> | tee -a .gitignore
@@ -94,10 +106,8 @@ inoremap <expr> <Tab> pumvisible() ? coc#_select_confirm() : "<Tab>"
 
 set shell=/bin/bash
 
-
 " Highlight
 augroup twig_ft
   au!
   autocmd BufNewFile,BufRead *.mcfunction set syntax=mcfunction
 augroup END
-
