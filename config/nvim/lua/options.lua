@@ -15,6 +15,8 @@ vim.opt.incsearch = true            -- search as characters are entered
 vim.opt.ignorecase = true           -- ignore case in searches by default
 vim.opt.smartcase = true            -- but make it case sensitive if an uppercase is entered
 
+vim.opt.colorcolumn = "120"
+
 vim.filetype.add({
     extension = {
         heex = 'eelixir'

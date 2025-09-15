@@ -15,7 +15,11 @@ return {
             "neovim/nvim-lspconfig",
         },
         opts = {
-            ensure_installed = { "pylsp", "elixirls" },
+            ensure_installed = { 
+                "pylsp",
+                "elixirls",
+                "gopls"
+            },
         },
     },
 }
