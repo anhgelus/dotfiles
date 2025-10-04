@@ -1,4 +1,4 @@
 # dotfiles
 
-My personnal dotfiles of my workstation powered by The Void, Sway and fish.
+My personnal dotfiles of my workstation powered by Void, Sway, niri, nvim and fish.
 
