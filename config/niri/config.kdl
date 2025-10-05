@@ -56,6 +56,13 @@ input {
     focus-follows-mouse max-scroll-amount="90%"
 }
 
+cursor {
+    xcursor-theme "Adwaita"
+    xcursor-size 24 
+
+    hide-after-inactive-ms 5000
+}
+
 output "HDMI-A-1" {
     mode "1920x1080@144"
     scale 1
