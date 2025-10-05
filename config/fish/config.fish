@@ -10,9 +10,11 @@ function start_wm
                 break
             case 1 
                 dbus-run-session -- sway
+                sudo poweroff
                 break
             case 2
                 dbus-run-session -- niri --session 
+                sudo poweroff
                 break
             case '*'
                 echo Invalid input
