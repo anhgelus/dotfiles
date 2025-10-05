@@ -1,0 +1,10 @@
+[Desktop Entry]
+Name=Zen Browser
+StartupWMClass=zen-browser
+Comment=Welcome to a calmer internet.
+GenericName=Web Browser
+Exec=/usr/lib/zen-browser/zen
+Icon=zen-browser
+Type=Application
+Categories=Network;WebBrowser;
+Path=/usr/bin
