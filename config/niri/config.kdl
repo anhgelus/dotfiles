@@ -53,7 +53,7 @@ input {
 
     // Focus windows and outputs automatically when moving the mouse into them.
     // Setting max-scroll-amount="0%" makes it work only on windows already fully on screen.
-    focus-follows-mouse max-scroll-amount="90%"
+    focus-follows-mouse max-scroll-amount="80%"
 }
 
 cursor {
@@ -179,6 +179,16 @@ window-rule {
   /////////////
  // SPECIFIC /
 /////////////
+
+window-rule {
+    match app-id="discord"
+    default-column-width { proportion 1.0; }
+}
+
+window-rule {
+    match app-id="zen"
+    default-column-width { proportion 0.9; }
+}
 
 // Open the Firefox picture-in-picture player as floating by default.
 window-rule {
