@@ -132,6 +132,7 @@ layout {
 
 spawn-at-startup "waybar"
 spawn-at-startup "swww-daemon"
+spawn-at-startup "pipewire"
 
 // To run a shell command (with variables, pipes, etc.), use spawn-sh-at-startup:
 // spawn-sh-at-startup "qs -c ~/source/qs/MyAwesomeShell"
@@ -171,7 +172,7 @@ window-rule {
     exclude is-focused=false is-active=false is-floating=false
     match app-id="mpv"
     match app-id="discord"
-    //match class="Minecraft.*"
+    match app-id="Minecraft.*"
 
     opacity 1.0 
 }
@@ -188,6 +189,11 @@ window-rule {
 window-rule {
     match app-id="zen"
     default-column-width { proportion 0.9; }
+}
+
+window-rule {
+    match app-id="Minecraft.*"
+    default-column-width { proportion 1.0; }
 }
 
 // Open the Firefox picture-in-picture player as floating by default.
