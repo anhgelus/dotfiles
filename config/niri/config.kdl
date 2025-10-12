@@ -239,6 +239,12 @@ window-rule {
     open-floating true
 }
 
+window-rule {
+    match app-id="jetbrains-*"
+    exclude is-floating=true
+    default-column-width { proportion 1.0; }
+}
+
 // Example: block out two password managers from screen capture.
 /-window-rule {
     match app-id=r#"^org\.keepassxc\.KeePassXC$"#
