@@ -16,7 +16,7 @@ return {
         },
         opts = {
             ensure_installed = { 
-                "pylsp",
+                "ty",
                 "elixirls",
                 "gopls"
             },

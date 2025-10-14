@@ -17,6 +17,11 @@ vim.opt.smartcase = true            -- but make it case sensitive if an uppercas
 
 vim.opt.colorcolumn = "120"
 
+vim.diagnostic.enable = true
+vim.diagnostic.config({
+    virtual_lines = true,
+})
+
 vim.filetype.add({
     extension = {
         heex = 'eelixir'
