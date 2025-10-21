@@ -18,7 +18,9 @@ return {
             ensure_installed = { 
                 "ty",
                 "elixirls",
-                "gopls"
+                "gopls",
+                "tinymist",
+                "clangd"
             },
         },
     },
