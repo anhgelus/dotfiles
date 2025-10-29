@@ -58,7 +58,7 @@ input {
 
 cursor {
     xcursor-theme "Adwaita"
-    xcursor-size 24 
+    xcursor-size 28 
 
     hide-after-inactive-ms 5000
 }
@@ -240,8 +240,8 @@ window-rule {
 }
 
 window-rule {
-    match app-id="jetbrains-*"
     exclude is-floating=true
+    match app-id="jetbrains-*"
     default-column-width { proportion 1.0; }
 }
 
