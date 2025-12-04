@@ -1,0 +1,6 @@
+.docOcurrContainer p, a, .stubs {
+    font-family:'PT Astra Serif', 'Times New Roman', 'EB Garamond', Arial, serif;
+    font-size: 24px;
+    line-height: 1.4em;
+    text-align: left;
+}

@@ -1,0 +1,23 @@
+.site-head, #site-main, .site-foot {
+    margin: 0 auto;
+}
+
+.post-content-title {
+    font-weight: bold;
+}
+
+.post-content-body {
+    & p {
+        font-family: Inter, sans-serif;
+        font-size: 18px;
+        line-height: 2em;
+    }
+    & code {
+        font-family: monospace;
+        font-size: 0.9em;    
+    }
+    & h1, h2, h3, h4, h5, h6 {
+        font-weight: bold;
+        letter-spacing: -0.5px;
+    }
+}

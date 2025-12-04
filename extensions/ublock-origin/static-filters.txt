@@ -1,0 +1,6 @@
+! 11 nov. 2025 https://docs.vultr.com
+docs.vultr.com##.undefined.dark\:bg-black\/20.dark\:border-dark-border.dark\:border.bg-vultr-navy.rounded-md.shadow-lg.xl\:px-6.px-4.xl\:py-8.py-6.flex-col.flex
+docs.vultr.com##.mb-0.border.shadow-sm.flex-col.flex.rounded.overflow-hidden.w-full.dark\:text-slate-50.dark\:bg-slate-950.dark\:border-dark-border.text-slate-950.bg-white.border-slate-200
+
+! 12 nov. 2025 https://modrinth.com
+modrinth.com##.rounded-2xl.justify-center.w-full.flex.mb-3.relative.wrapper

@@ -1,0 +1,4 @@
+https://raw.githubusercontent.com/arosh/ublacklist-stackoverflow-translation/master/uBlacklist.txt
+https://raw.githubusercontent.com/arosh/ublacklist-github-translation/master/uBlacklist.txt
+https://raw.githubusercontent.com/laylavish/uBlockOrigin-HUGE-AI-Blocklist/main/list_uBlacklist.txt
+https://codeberg.org/legendary_creeper/mc-safebrowsing/raw/branch/main/mc-sb-ublacklist.txt

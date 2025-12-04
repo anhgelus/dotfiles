@@ -1,0 +1,14 @@
+# trash sites
+*://*.w3schools.com/*
+*://*.w3schools.tech/*
+*://*.geeksforgeeks.org/*
+*://serva-ts.com/*
+*://www.alamy.com/*
+*://thedirect.com/*
+*://ubunlog.com/*
+*://www.androidpolice.com/*
+*://elixir-examples.github.io/*
+*://github-wiki-see.page/*
+*://www.jasonyadlovski.com/*
+*://hackernoon.com/*
+*://elsefix.com/*
