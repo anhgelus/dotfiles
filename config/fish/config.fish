@@ -58,3 +58,4 @@ end
 
 # alias
 alias ll "eza -lha --icons=auto --sort=name --group-directories-first"
+alias rg "rg -C 3"
