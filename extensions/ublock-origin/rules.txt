@@ -9,6 +9,7 @@ no-scripting: duckduckgo.com false
 no-scripting: github.com false
 no-scripting: infomaniak.com false
 no-scripting: modrinth.com false
+no-scripting: openstreetmap.org false
 no-scripting: proton.me false
 no-scripting: sorbonne-universite.fr false
 no-scripting: wikipedia.org false
