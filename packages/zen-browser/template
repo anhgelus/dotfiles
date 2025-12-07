@@ -1,12 +1,12 @@
 # Template file for 'zen-browser'
 pkgname=zen-browser
-version=1.16.2b
+version=1.17.11b_1
 revision=1
 only_for_archs="x86_64"
 meta=yes
 hostmakedepends="tar xz"
 short_desc="Minimalistic web browser"
-maintainer="SalahDin Rezk <salah2112004@gmail.com>"
+maintainer="Anhgelus Morhtuuzh <anhgelus.morhtuuzh@proton.me>"
 license="MPL-2.0"
 homepage="https://www.zen-browser.app/"
 distfiles="https://github.com/zen-browser/desktop/releases/download/${version/a/-a}/zen.linux-x86_64.tar.xz"
