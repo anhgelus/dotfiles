@@ -57,5 +57,6 @@ function y
 end
 
 # alias
-alias ll "eza -lha --icons=auto --sort=name --group-directories-first"
+alias ll "eza -lh --icons=auto --sort=name --group-directories-first"
+alias lla "ll -a"
 alias rg "rg -C 3"
