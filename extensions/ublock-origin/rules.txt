@@ -4,6 +4,7 @@ no-scripting: * true
 no-scripting: adventofcode.com false
 no-scripting: anhgelus.world false
 no-scripting: bsky.app false
+no-scripting: bsky.social false
 no-scripting: codeberg.org false
 no-scripting: duckduckgo.com false
 no-scripting: github.com false
@@ -11,10 +12,12 @@ no-scripting: infomaniak.com false
 no-scripting: localhost false
 no-scripting: modrinth.com false
 no-scripting: paris4.moveonfr.com false
+no-scripting: pkgs.org false
 no-scripting: openstreetmap.org false
 no-scripting: proton.me false
 no-scripting: sorbonne-universite.fr false
 no-scripting: stackoverflow.com false
+no-scripting: tangled.org false
 no-scripting: wikipedia.org false
 behind-the-scene * * noop
 behind-the-scene * 1p-script noop
