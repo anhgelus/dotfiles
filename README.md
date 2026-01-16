@@ -11,7 +11,7 @@ You can install my nvim config with:
 > This command will override your NeoVim config.
 > Proceed with caution!
 
-> [!INFO]
+> [!NOTE]
 > It will download the AppImage of NeoVim, put it in your home, and clone my config in your `.config/nvim`.
 
 ```bash
@@ -28,7 +28,7 @@ You can install these scripts to your local repo with:
 > This command may overrides scripts installed in your local repository.
 > Proceed with caution!
 
-> [!INFO]
+> [!NOTE]
 > These will be available under `@local/<package>:<version>`.
 > See [`typst/README.md`](./typst/README.md) for more information.
 >
