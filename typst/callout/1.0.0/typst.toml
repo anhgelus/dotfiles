@@ -1,0 +1,7 @@
+[package]
+name = "callout"
+version = "1.0.0"
+entrypoint = "lib.typ"
+authors = ["Anhgelus Morhtuuzh"]
+license = "MIT"
+description = "My callouts"

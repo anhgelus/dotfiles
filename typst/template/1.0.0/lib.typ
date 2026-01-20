@@ -1,11 +1,12 @@
 #let doc(authors: (), page_title: [], doc) = {
+  // style
   set text(
     font: "Inter",
     size: 11pt,
   )
   set par(
     leading: 1em,
-    first-line-indent: 1em,
+    //first-line-indent: (amount: 1em, all: true),
     spacing: 2em,
   )
   set heading(numbering: "1.")
@@ -16,13 +17,13 @@
       // Retrieve the document
       // element's title property.
       context {
-        emph([
+        emph[
           #document.title - #authors.first().name
-        ])
+        ]
       }
     ),
     numbering: "1",
-    margin: (x: 2.85cm),
+    margin: (x: 3.5cm),
   )
 
   show heading: set par(leading: 0.75em)
