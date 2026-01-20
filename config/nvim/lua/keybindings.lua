@@ -1,13 +1,26 @@
 vim.keymap.set('n', '<A-Right>', '<cmd>tabnext<CR>')
 vim.keymap.set('n', '<A-Left>', '<cmd>tabprevious<CR>')
+
 -- Neotree
 vim.keymap.set('n', '<A-&>', '<cmd>Neotree<CR>')
-vim.api.nvim_create_user_command('Gs', 'Neotree float git_status git_base=main', {})
+--vim.api.nvim_create_user_command('Gs', 'Neotree float git_status git_base=main', {})
+
 -- LSP
-vim.keymap.set('n', 'gd', '<cmd>lua vim.lsp.buf.definition()<cr>', opts)
-vim.keymap.set('n', 'gD', '<cmd>lua vim.lsp.buf.declaration()<cr>', opts)
-vim.keymap.set('n', 'gi', '<cmd>lua vim.lsp.buf.implementation()<cr>', opts)
-vim.keymap.set('n', 'go', '<cmd>lua vim.lsp.buf.type_definition()<cr>', opts)
-vim.keymap.set('n', 'gr', '<cmd>lua vim.lsp.buf.references()<cr>', opts)
-vim.keymap.set('n', 'gs', '<cmd>lua vim.lsp.buf.signature_help()<cr>', opts)
-vim.keymap.set('n', '<F6>', '<cmd>lua vim.lsp.buf.rename()<cr>', opts)
+-- go to
+vim.keymap.set('n', 'gd', vim.lsp.buf.definition)
+vim.keymap.set('n', 'gD', vim.lsp.buf.declaration)
+vim.keymap.set('n', 'gi', vim.lsp.buf.implementation)
+vim.keymap.set('n', 'go', vim.lsp.buf.type_definition)
+vim.keymap.set('n', 'gr', vim.lsp.buf.references)
+-- display
+vim.keymap.set('n', 'ds', vim.lsp.buf.signature_help)
+vim.keymap.set('n', 'dh', vim.lsp.buf.hover)
+-- utils
+vim.keymap.set('n', '<F2>', vim.lsp.buf.rename)
+vim.keymap.set('n', '<space><CR>', vim.lsp.buf.code_action)
+vim.api.nvim_create_autocmd({"CursorHold", "CursorHoldI"}, {
+    callback = vim.lsp.buf.document_highlight
+})
+vim.api.nvim_create_autocmd({"CursorMoved"}, {
+    callback = vim.lsp.buf.clear_references
+})

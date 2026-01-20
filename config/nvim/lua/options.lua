@@ -27,3 +27,13 @@ vim.filetype.add({
         heex = 'eelixir'
     }
 })
+vim.filetype.add({
+    extension = {
+        yrl = 'erlang'
+    }
+})
+vim.filetype.add({
+    extension = {
+        xrl = 'erlang'
+    }
+})
