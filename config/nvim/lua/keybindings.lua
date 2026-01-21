@@ -15,6 +15,7 @@ vim.keymap.set('n', 'gr', vim.lsp.buf.references)
 -- display
 vim.keymap.set('n', 'ds', vim.lsp.buf.signature_help)
 vim.keymap.set('n', 'dh', vim.lsp.buf.hover)
+vim.keymap.set('n', 'de', vim.diagnostic.open_float)
 -- utils
 vim.keymap.set('n', '<F2>', vim.lsp.buf.rename)
 vim.keymap.set('n', '<space><CR>', vim.lsp.buf.code_action)

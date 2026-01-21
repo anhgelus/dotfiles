@@ -6,12 +6,11 @@ return {
 
         version = "*",
         opts = {
-
             keymap = {
                 preset = "enter",
                 -- Select completions
-                ["<Up>"] = { "select_prev", "fallback" },
-                ["<Down>"] = { "select_next", "fallback" },
+                ["<Up>"] = { "fallback" },
+                ["<Down>"] = { "fallback" },
                 ["<Tab>"] = { "select_next", "fallback" },
                 ["<S-Tab>"] = { "select_prev", "fallback" },
                 ["<CR-space>"] = { "show", "hide", "fallback" },
@@ -30,7 +29,22 @@ return {
                 default = { "lsp", "path", "snippets", "buffer" },
             },
 
-            fuzzy = { implementation = "prefer_rust_with_warning" },
+            fuzzy = { 
+                implementation = "prefer_rust_with_warning",
+                max_typos = function(keyword) return math.floor(#keyword / 8) end,
+                sorts = {
+                    function(a, b)
+                        local kind = require('blink.cmp.types').CompletionItemKind.Keyword
+                        if a.kind == kind and b.kind ~= kind then
+                            return true
+                        elseif a.kind ~= kind and b.kind == kind then
+                            return false
+                        end
+                    end,
+                    'score',
+                    'sort_text'
+                }
+            },
             completion = {
                 -- The keyword should only match against the text before
                 keyword = { range = "prefix" },
