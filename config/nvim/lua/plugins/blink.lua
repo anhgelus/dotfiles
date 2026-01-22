@@ -33,12 +33,24 @@ return {
                 implementation = "prefer_rust_with_warning",
                 max_typos = function(keyword) return math.floor(#keyword / 8) end,
                 sorts = {
+                    -- kind priority:
+                    -- 1. keyword
+                    -- 2. variable
+                    -- 3. methods
+                    -- 4. function
                     function(a, b)
-                        local kind = require('blink.cmp.types').CompletionItemKind.Keyword
-                        if a.kind == kind and b.kind ~= kind then
-                            return true
-                        elseif a.kind ~= kind and b.kind == kind then
-                            return false
+                        local index = function(t, v)
+                            for index, value in ipairs(t) do
+                                if value == v then return index end
+                            end
+                            return 100 -- using 100 because it is unlikely that I have more than 100 priorities
+                        end
+                        local kind = require('blink.cmp.types').CompletionItemKind
+                        local priority = { kind.Keyword, kind.Variable, kind.Method, kind.Function }
+                        local aIn = index(priority, a)
+                        local bIn = index(priority, b)
+                        if aIn ~= bIn then
+                            return aIn > bIn
                         end
                     end,
                     'score',
