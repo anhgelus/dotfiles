@@ -17,7 +17,7 @@
 
 #let callout(icon, title, title_content, colors, content) = {
   emptyblock(colors)[
-    #text(size: 1.25em)[#icon~ #strong(title)]
+    #text(size: 1.15em)[#icon~ #strong(title)]
 
     #content
   ]
