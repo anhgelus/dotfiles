@@ -33,7 +33,7 @@ You can install these scripts to your local repo with:
 > See [`typst/README.md`](./typst/README.md) for more information.
 >
 > If you want, you can set `@anhgelus` (or anything else) instead of `@local` by modifying `packages/local/` into
-> `packages/anhgelus`.
+> `packages/anhgelus/`.
 
 ```bash
 cp -r typst/* ${XDG_DATA_HOME:-$HOME/.local/share}/typst/packages/local/
