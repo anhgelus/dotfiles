@@ -2,9 +2,9 @@ return {
     {
 		"neovim/nvim-lspconfig",
 		config = function()
-			local lspconfig = require("lspconfig")
+			-- local lspconfig = require("lspconfig")
 
-			lspconfig.pylsp.setup({})
+			-- lspconfig.pylsp.setup({})
 		end,
 	},
     { "mason-org/mason.nvim", opts = {} },
@@ -16,11 +16,24 @@ return {
         },
         opts = {
             ensure_installed = { 
+                -- python
                 "ty",
+                -- elixir
                 "elixirls",
+                -- go
                 "gopls",
+                -- typst
                 "tinymist",
-                "clangd"
+                -- C
+                "clangd",
+                -- zig
+                "zls",
+                -- clojure
+                "clojure_lsp",
+                -- web
+                "cssls", "emmet_ls", "html",
+                -- containers
+                "dockerls"
             },
         },
     },
