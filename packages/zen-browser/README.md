@@ -24,7 +24,7 @@ You can check updates with:
 ```
 
 You can update the package with:
-```
+```bash
 xgensum -i zen-browser
 # to build the updated package
 ./xbps-src pkg zen-browser
