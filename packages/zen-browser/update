@@ -1,0 +1,2 @@
+site=https://github.com/zen-browser/desktop/releases/latest
+pattern="Release build - \K[\d.b]+(?= \([\d-]+\))"
