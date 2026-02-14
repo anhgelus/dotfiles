@@ -1,0 +1,16 @@
+aside {
+    display: none;
+}
+
+.corps {
+    margin: 0 auto;
+    max-width: 800px;
+    
+    font-size: 18px;
+    line-height: 2em;
+    font-family: serif;
+}
+
+[x-data="Page_Article_Fulltext()"] > * {
+    width: 100%;
+}
