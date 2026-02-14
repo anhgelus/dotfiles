@@ -1,6 +1,7 @@
 # Zen Browser XBPS Package
 
-This folder contains files for packaging Zen Browser for Void Linux using the XBPS package manager.
+This folder contains files for packaging [Zen Browser](https://zen-browser.app/) for Void Linux using the XBPS package
+manager.
 
 ## Template File
 
@@ -8,8 +9,6 @@ The `template` file is an XBPS template for Zen Browser.
 
 - Architecture: x86_64 only
 - Build style: precompiled binaries
-
-The template file handles the installation of precompiled binaries and sets up the necessary dependencies.
 
 ## Installing 
 
@@ -25,8 +24,12 @@ You can check updates with:
 
 You can update the package with:
 ```bash
+# update the template file manually
+# fetch source files
+./xbps-src fetch zen-browser
+# update checksum
 xgensum -i zen-browser
-# to build the updated package
+# build the updated package
 ./xbps-src pkg zen-browser
 ```
 If `xgensum` is not found, install the `xtools` package.
