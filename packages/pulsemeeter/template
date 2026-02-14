@@ -1,0 +1,14 @@
+# Template file for 'pulsemeeter'
+pkgname=pulsemeeter
+version=2.0.0
+revision=2
+build_style=python3-pep517
+hostmakedepends="git python3-build python3-wheel python3-Babel"
+makedepends=""
+depends="python3 gobject-introspection python3-gobject python3-pulsectl python3-pulsectl-asyncio python3-pydantic"
+short_desc="A frontend to ease the use of pulseaudio's routing capabilities, much like voicemeeter's workflow."
+maintainer="Anhgelus Morhtuuzh <anhgelus.morhtuuzh@proton.me>"
+license="MIT"
+homepage="https://github.com/theRealCarneiro/pulsemeeter"
+distfiles="https://github.com/theRealCarneiro/pulsemeeter/archive/refs/tags/v${version}.tar.gz"
+checksum=a1e807d158ec39474b2ffaf1c6fe061c1bbefe0c20d0e4fc479377ceddf341aa

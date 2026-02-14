@@ -1,0 +1,26 @@
+From d3e9e4778665532f915e21938ff81aaacda186c9 Mon Sep 17 00:00:00 2001
+From: ZorudaRinku <stronger6@gmail.com>
+Date: Sat, 7 Feb 2026 19:52:50 -0700
+Subject: [PATCH] Remove dead code causing asyncio error with latest Python
+ 3.14+
+
+---
+ src/pulsemeeter/scripts/pmctl_async.py | 5 -----
+ 1 file changed, 5 deletions(-)
+
+diff --git a/src/pulsemeeter/scripts/pmctl_async.py b/src/pulsemeeter/scripts/pmctl_async.py
+index 4e8120e..9963752 100644
+--- a/src/pulsemeeter/scripts/pmctl_async.py
++++ b/src/pulsemeeter/scripts/pmctl_async.py
+@@ -6,11 +6,6 @@
+ from pulsemeeter.model.types import PulseEvent
+ 
+ LOG = logging.getLogger('generic')
+-# PULSE = pulsectl.Pulse('pmctl')
+-
+-# TODO: Use a single PulseAsync object
+-
+-PULSE = pulsectl_asyncio.PulseAsync('pmctl_async')
+ 
+ 
+ async def init(device_type: str, device_name: str, channel_num: int = 2):
