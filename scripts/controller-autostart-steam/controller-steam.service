@@ -1,0 +1,9 @@
+[Unit]
+Description=Autostart Steam when a controller is plugged
+
+[Service]
+Type=simple
+ExecStart=/usr/bin/bash /home/anhgelus/.local/bin/,steam-controller
+
+[Install]
+WantedBy=default.target

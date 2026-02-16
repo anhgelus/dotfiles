@@ -1,0 +1,14 @@
+#!/usr/bin/env bash
+
+env_file="$HOME/.config/controller-autostart-steam.env"
+
+. $env_file
+
+if [[ -f "$lockfile" ]]; then
+    echo "lockfile present"
+    exit 0
+fi
+
+touch "$lockfile"
+
+XDG_RUNTIME_DIR=/run/user/$(id -u $USER) systemctl --user start controller-steam.service

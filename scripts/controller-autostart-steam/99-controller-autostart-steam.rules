@@ -1,0 +1,2 @@
+# my Xbox 360 controller
+ATTR{idVendor}=="0e6f", ATTR{idProduct}=="0413", ACTION=="add", RUN+="/usr/bin/sudo -u anhgelus /home/anhgelus/.local/bin/,controller-add"
