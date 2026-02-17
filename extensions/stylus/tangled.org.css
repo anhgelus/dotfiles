@@ -1,6 +1,8 @@
 :root {
     font-size: 16px;
     
+    --gap-text: 0.75rem;
+    
     --tw-prose-invert-body: #e0e3e9;
 }
 
@@ -9,9 +11,9 @@
 }
 
 code {
-    font-family: monospace;
-    font-size: 14px;
-    line-height: 1.4em;
+    font-family: monospace!important;
+    font-size: 14px!important;
+    line-height: 1.4em!important;
 }
 
 section article {
@@ -20,5 +22,21 @@ section article {
     margin: 0 auto;
     
     font-size: 18px;
-    line-height: 1.85em;
+    line-height: 1.6em;
+}
+
+.prose :where(p):not(:where([class~="not-prose"], [class~="not-prose"] *)) {
+    margin: var(--gap-text) 0;
+}
+
+details[data-callout] {
+    > summary { margin-bottom: var(--gap-text); }
+    
+    > div {
+        display: flex;
+        flex-direction: column;
+        gap: var(--gap-text);
+        
+        p { margin: 0; }
+    }
 }
