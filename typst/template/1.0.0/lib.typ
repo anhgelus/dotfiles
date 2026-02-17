@@ -2,7 +2,7 @@
   // style
   set text(
     font: "Inter",
-    size: 11pt,
+    size: 10pt,
   )
   set par(
     leading: 1em,
