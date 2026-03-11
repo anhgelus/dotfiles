@@ -4,6 +4,8 @@
     --gap-text: 0.75rem;
     
     --tw-prose-invert-body: #e0e3e9;
+    
+    --content-width: 750px;
 }
 
 .max-w-screen-lg {
@@ -11,14 +13,14 @@
 }
 
 code {
-    font-family: monospace!important;
+    font-family: ui-monospace, monospace!important;
     font-size: 14px!important;
     line-height: 1.4em!important;
 }
 
 section article {
     display: block;
-    max-width: 750px;
+    max-width: var(--content-width);
     margin: 0 auto;
     
     font-size: 18px;
@@ -38,5 +40,54 @@ details[data-callout] {
         gap: var(--gap-text);
         
         p { margin: 0; }
+    }
+}
+
+div:has(> #subs) {
+    display: grid;
+    grid-template:
+        "a b c"
+        ". . e";
+    row-gap: 1rem;
+}
+
+#files {
+    grid-area: a;
+    max-width: 30vw!important;
+    padding-bottom: 0;
+}
+
+#resize-files {
+    grid-area: b;
+}
+
+#diff-files {
+    position: static;
+    grid-area: c;
+    padding-bottom: 0;
+}
+
+#resize-subs {
+    display: none;
+}
+
+#subs {
+    position: static;
+    grid-area: e;
+    width: 100%!important;
+    max-width: 100%!important;
+    max-height: 100%!important;
+    
+    > details > div {
+        max-height: 100%!important;
+    }
+    
+    .group\/comments {
+        max-width: var(--content-width);
+        margin: 0 auto;
+        
+        > div > div {
+            margin-right: 0;
+        }
     }
 }
