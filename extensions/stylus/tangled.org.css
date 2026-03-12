@@ -18,7 +18,7 @@ code {
     line-height: 1.4em!important;
 }
 
-section article {
+section article, #blob-contents.prose {
     display: block;
     max-width: var(--content-width);
     margin: 0 auto;
