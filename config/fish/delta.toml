@@ -1,0 +1,4 @@
+[delta]
+    width = 20
+    paging = never
+    features = diff-so-fancy

@@ -44,6 +44,25 @@ export GPG_TTY=$(tty)
 # other
 set -gx EDITOR "nvim"
 
+# fzf
+
+## open in nvim with <C-o>
+set -x fzf_directory_opts --bind "ctrl-o:execute($EDITOR {} &> /dev/tty)"
+
+## fix theme
+function apply_theme --on-variable fish_terminal_color_theme
+    switch $fish_terminal_color_theme
+        case "light" 
+            set -gx BAT_THEME "Catppuccin Latte"
+        case "dark" 
+            set -gx BAT_THEME "Catppuccin Macchiato"
+    end
+end
+
+## fix display
+set -x fzf_diff_highlighter delta --config "$HOME/.config/fish/delta.toml"
+
+## custom bindings
 fzf_configure_bindings --directory=\cf --git_log=\cg --git_status=\cs
 
 # yazi
@@ -58,5 +77,5 @@ end
 
 # alias
 alias ll "eza -lh --icons=auto --sort=name --group-directories-first"
-alias lla "ll -a"
+alias lla "eza -lha --icons=auto --sort=name --group-directories-first"
 alias rg "rg -C 3"

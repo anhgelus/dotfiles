@@ -1,0 +1,26 @@
+[core]
+    pager = delta
+[interactive]
+    diffFilter = delta --color-only
+[commit]
+	gpgsign = true
+[gpg]
+	format = ssh
+[advice]
+	addIgnoredFile = false
+[init]
+	defaultBranch = main
+[push]
+	autoSetupRemote = true
+[merge]
+    conflictStyle = zdiff3
+[filter "lfs"]
+	process = git-lfs filter-process
+	required = true
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+[delta]
+    navigate = true  # use n and N to move between diff sections
+    line-numbers = true
+    hyperlinks = true
+    features = diff-so-fancy
