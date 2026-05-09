@@ -16,14 +16,12 @@ vim.keymap.set('n', '<C-W><A-Down>', '<C-W>k')
 vim.keymap.set('n', '<space>t', function() 
     require('neo-tree.command').execute({
         position = "float",
-        reveal_force_cwd = true,
     })
 end)
 vim.keymap.set('n', '<space>f', function() 
     require('neo-tree.command').execute({
         source = "buffers",
         position = "float",
-        reveal_force_cwd = true,
     })
 end)
 vim.keymap.set('n', '<space>g', function() 

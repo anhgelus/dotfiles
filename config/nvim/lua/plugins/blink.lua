@@ -13,22 +13,20 @@ return {
                 ["<Down>"] = { "fallback" },
                 ["<Tab>"] = { "select_next", "fallback" },
                 ["<S-Tab>"] = { "select_prev", "fallback" },
-                ["<CR-space>"] = { "show", "hide", "fallback" },
+                ["<C-space>"] = { "show", "hide", "fallback" },
                 -- Scroll documentation
-                ["<S-Up>"] = { "scroll_documentation_up", "fallback" },
-                ["<S-Down>"] = { "scroll_documentation_down", "fallback" },
+                --["<S-Up>"] = { "scroll_documentation_up", "fallback" },
+                --["<S-Down>"] = { "scroll_documentation_down", "fallback" },
                 -- Show/hide signature
                 ["<C-k>"] = { "show_signature", "hide_signature", "fallback" },
             },
-
             appearance = {
                 nerd_font_variant = "mono",
             },
-
             sources = {
                 default = { "lsp", "path", "snippets", "buffer" },
+                providers = { snippets = { opts = { friendly_snippets = false } } },
             },
-
             fuzzy = { 
                 implementation = "prefer_rust_with_warning",
                 max_typos = function(keyword) return math.floor(#keyword / 8) end,
@@ -80,7 +78,6 @@ return {
                     auto_show = true,
                 },
             },
-
             -- Signature help when tying
             signature = { enabled = true },
         },
