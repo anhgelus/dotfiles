@@ -16,13 +16,43 @@ return {
                 padding = 2 
             }
         },
+        filesystem = {
+            find_by_full_path_words = true,
+        },
+        nesting_rules = {
+            ["js"] = { "js.map" },
+            ["css"] = { "css.map" },
+            ["packages.json"] = {
+                pattern = "^package%.json$",
+                files = { "package-lock.json", "yarn*", "bun.lock" }
+            },
+            ["go.mod"] = { "go.sum" },
+            ["go"] = {
+                pattern = "(.*)%.go$",    -- <-- Lua pattern with capture
+                files = { "%1_test.go" }, -- <-- glob pattern with capture
+            },
+        },
+        event_handlers = {
+            {
+                event = 'after_render',
+                handler = function (state)
+                    if not require('neo-tree.sources.common.preview').is_active() then
+                        state.config = { use_float = true } -- or whatever your config is
+                        state.commands.toggle_preview(state)
+                    end
+                end
+            },
+        },
         window = {
             mappings = {
                 ["<cr>"] = "open",
-                ["esc"] = "cancel",
-                ["<A-cr>"] = "open_tabnew",
+                ["<Esc>"] = "cancel",
+                ["<A-cr>"] = "open_vsplit",
+                ["<t>"] = "open_tabnew",
                 ["<r>"] = "rename",
-                ["<d>"] = "delete"
+                ["<d>"] = "delete",
+                ["<S-Up>"] = { "scroll_preview", config = {direction = 2} },
+                ["<S-Down>"] = { "scroll_preview", config = {direction = -2} },
             }
         }
     }

@@ -37,3 +37,24 @@ vim.filetype.add({
         xrl = 'erlang'
     }
 })
+vim.filetype.add({
+    extension = {
+        scd = 'markdown'
+    }
+})
+vim.filetype.add({
+    extension = {
+        td = 'typst'
+    }
+})
+
+vim.diagnostic.config({
+    signs = {
+        text = {
+            [vim.diagnostic.severity.ERROR] = '',
+            [vim.diagnostic.severity.WARN] = '',
+            [vim.diagnostic.severity.INFO] = '',
+            [vim.diagnostic.severity.HINT] = '󰌵',
+        },
+    }
+})
