@@ -19,7 +19,22 @@ vim.opt.colorcolumn = "120"
 
 vim.diagnostic.enable = true
 vim.diagnostic.config({
-    virtual_lines = true,
+    severity_sort = true,
+    virtual_text = {
+        severity = { max = vim.diagnostic.severity.INFO },
+    },
+    virtual_lines = {
+        severity = { min = vim.diagnostic.severity.WARN },
+    },
+    signs = {
+        severity = { min = vim.diagnostic.severity.WARN },
+        text = {
+            [vim.diagnostic.severity.ERROR] = '',
+            [vim.diagnostic.severity.WARN] = '',
+            [vim.diagnostic.severity.INFO] = '',
+            [vim.diagnostic.severity.HINT] = '󰌵',
+        },
+    },
 })
 
 vim.filetype.add({
@@ -45,16 +60,5 @@ vim.filetype.add({
 vim.filetype.add({
     extension = {
         td = 'typst'
-    }
-})
-
-vim.diagnostic.config({
-    signs = {
-        text = {
-            [vim.diagnostic.severity.ERROR] = '',
-            [vim.diagnostic.severity.WARN] = '',
-            [vim.diagnostic.severity.INFO] = '',
-            [vim.diagnostic.severity.HINT] = '󰌵',
-        },
     }
 })

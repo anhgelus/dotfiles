@@ -9,8 +9,6 @@ return {
             ensure_installed = { 
                 -- python
                 "ty",
-                -- elixir
-                "elixirls",
                 -- go
                 "gopls",
                 -- typst
