@@ -1,7 +1,7 @@
 function fish_greeting
     if not set -q fish_greeting
-        set -l line1 (printf (_ 'Welcome to %sanhgelus-void%s.') (set_color "#95d5b2" green) (set_color normal))
-        set -l line2 \n(printf (_ 'Workstation powered by the %svoid%s.') (set_color green) (set_color normal))
+        set -l line1 (printf (_ 'Welcome to %sanhgelus-framework%s.') (set_color cyan) (set_color normal))
+        set -l line2 \n(printf (_ 'Laptop powered by the %sArch%s.') (set_color blue) (set_color normal))
         set -g fish_greeting "$line1$line2"
     end
 

@@ -30,7 +30,7 @@ if status is-interactive
     end
 end
 
-# bun
+# custom path 
 set --export BUN_INSTALL "$HOME/.bun"
 set --export GOPATH "$HOME/go"
 set --export PATH $BUN_INSTALL/bin $GOPATH/bin $HOME/.local/bin $PATH
@@ -43,6 +43,8 @@ export GPG_TTY=$(tty)
 
 # other
 set -gx EDITOR "nvim"
+set -gx PAGER "bat"
+set -gx MANPAGER "bat -l man -p"
 
 # fzf
 
@@ -54,8 +56,10 @@ function apply_theme --on-variable fish_terminal_color_theme
     switch $fish_terminal_color_theme
         case "light" 
             set -gx BAT_THEME "Catppuccin Latte"
+            set_theme_light
         case "dark" 
             set -gx BAT_THEME "Catppuccin Macchiato"
+            set_theme_dark
     end
 end
 
@@ -75,7 +79,12 @@ function y
 	rm -f -- "$tmp"
 end
 
+# prefer 256 palettes
+set -g fish_term24bit 0
+
 # alias
 alias ll "eza -lh --icons=auto --sort=name --group-directories-first"
 alias lla "eza -lha --icons=auto --sort=name --group-directories-first"
 alias rg "rg -C 3"
+
+set -q GHCUP_INSTALL_BASE_PREFIX[1]; or set GHCUP_INSTALL_BASE_PREFIX $HOME ; set -gx PATH $HOME/.cabal/bin /home/anhgelus/.ghcup/bin $PATH # ghcup-env

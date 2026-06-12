@@ -19,10 +19,10 @@ function prompt_login --description "display user name for the prompt"
     end
 
     # If we're running via SSH, change the host color.
-    set -l color_host "#95d5b2" 
+    set -l color_host $fish_color_user
     if set -q SSH_TTY; and set -q fish_color_host_remote
         set color_host $fish_color_host_remote
     end
 
-    echo -n -s (set_color "#ffd6ff" green) "$USER" (set_color normal) @ (set_color $color_host) (prompt_hostname) (set_color normal)
+    echo -n -s (set_color $fish_color_normal) "[" (set_color $color_host) "$USER" (set_color $fish_color_normal) "]" (set_color normal)
 end
