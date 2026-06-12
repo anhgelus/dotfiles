@@ -1,35 +1,43 @@
 vim.lsp.codelens.enable(not vim.lsp.codelens.is_enabled())
 
--- highlight
 local highlight_group = vim.api.nvim_create_augroup("UserLspHighlight", { clear = true })
 vim.api.nvim_create_autocmd({"CursorHold", "CursorHoldI"}, {
     group = highlight_group,
-    callback = function() 
+    callback = function(args) 
+        if args.data == nil then return end
+        local client = vim.lsp.get_client_by_id(args.data.client_id)
         if client.server_capabilities.documentHighlightProvider then
             vim.lsp.buf.document_highlight()
         end
     end
 })
 vim.api.nvim_create_autocmd({"CursorMoved"}, {
-    callback = function() 
+    callback = function(args) 
+        if args.data == nil then return end
+        local client = vim.lsp.get_client_by_id(args.data.client_id)
         if client.server_capabilities.documentHighlightProvider then
             vim.lsp.buf.clear_references()
         end
     end
 })
 
--- inlay hints
-vim.api.nvim_create_autocmd("LspAttach", {
-    group = vim.api.nvim_create_augroup("UserLspConfig", {}),
-    callback = function(args)
+vim.api.nvim_create_autocmd("BufWritePre", {
+    group = vim.api.nvim_create_augroup("UserLspFormat", { clear = true }),
+    callback = function(args) 
+        if args.data == nil then return end
         local client = vim.lsp.get_client_by_id(args.data.client_id)
-        if client.server_capabilities.inlayHintProvider then
-            vim.lsp.inlay_hint.enable(true, { bufnr = args.buf })
+        if client.supports_method("textDocument/formatting") then
+            vim.lsp.buf.format({async = false}) 
         end
     end
 })
 
--- configs
+vim.api.nvim_create_autocmd("CursorMovedI", {
+    group = vim.api.nvim_create_augroup("UserLspDetails", { clear = true }),
+    callback = vim.lsp.buf.signature_help,
+})
+
+-- specific configs
 vim.lsp.config("ty", {
     settings = {
         ty = {

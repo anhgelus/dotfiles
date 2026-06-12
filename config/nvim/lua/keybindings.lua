@@ -42,6 +42,23 @@ vim.keymap.set('n', 'gr', vim.lsp.buf.references)
 vim.keymap.set('n', 'ss', vim.lsp.buf.signature_help)
 vim.keymap.set('n', 'sh', vim.lsp.buf.hover)
 vim.keymap.set('n', 'se', vim.diagnostic.open_float)
+local custom_doc_cmd = {
+    go = "go doc",
+}
+function do_doc(callback) 
+    local cmd = custom_doc_cmd[vim.bo.filetype]
+    if cmd == nil then return end
+    local buf = 'u'
+    local pager = "bat -l " .. vim.bo.filetype .. " -p"
+    callback(buf)
+    vim.cmd('vert term ' .. cmd .. ' ' .. vim.fn.getreg(buf) .. ' | ' .. pager)
+end
+vim.keymap.set('n', 'sd', function()
+    do_doc(function(buf) vim.cmd.normal {'"'.. buf .. 'yiW', bang = true} end)
+end)
+vim.keymap.set('v', 'sd', function()
+    do_doc(function(buf) vim.cmd.normal {'"'.. buf .. 'y', bang = true} end)
+end)
 -- utils
 vim.keymap.set('n', '<F2>', vim.lsp.buf.rename)
 vim.keymap.set('n', '<space>a', vim.lsp.buf.code_action)

@@ -1,11 +1,11 @@
 local formatter_group = vim.api.nvim_create_augroup("Format auto commands", { clear = true })
 
-function auto_fmt(pattern, desc, cmd)
+function auto_fmt(pattern, desc, callback)
     vim.api.nvim_create_autocmd({ "BufWritePost" }, {
         pattern = pattern,
         desc = "Auto-format " .. desc .. " files after saving",
         callback = function()
-            vim.cmd(":silent !" .. cmd(vim.api.nvim_buf_get_name(0)))
+            vim.cmd(":silent !" .. callback(vim.api.nvim_buf_get_name(0)))
         end,
         group = formatter_group,
     })
