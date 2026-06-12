@@ -53,3 +53,15 @@ vim.keymap.set('n', '<space>h', function()
     { bufnr = 0 }
   )
 end)
+-- web browsing
+function browse(selector)
+    vim.cmd.normal {'"uyi' .. selector, bang = true}
+    print(vim.fn.getreg('u'))
+    vim.cmd('vert term reader "' .. vim.fn.getreg('u') .. '"')
+end
+vim.keymap.set('n', 'gx', function() 
+    browse('W')
+end)
+vim.keymap.set('n', 'g(x', function()
+    browse('(')
+end)

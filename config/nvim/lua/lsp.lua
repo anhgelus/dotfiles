@@ -1,11 +1,21 @@
 vim.lsp.codelens.enable(not vim.lsp.codelens.is_enabled())
 
 -- highlight
+local highlight_group = vim.api.nvim_create_augroup("UserLspHighlight", { clear = true })
 vim.api.nvim_create_autocmd({"CursorHold", "CursorHoldI"}, {
-    callback = function() pcall(vim.lsp.buf.document_highlight) end
+    group = highlight_group,
+    callback = function() 
+        if client.server_capabilities.documentHighlightProvider then
+            vim.lsp.buf.document_highlight()
+        end
+    end
 })
 vim.api.nvim_create_autocmd({"CursorMoved"}, {
-    callback = function() pcall(vim.lsp.buf.clear_references) end
+    callback = function() 
+        if client.server_capabilities.documentHighlightProvider then
+            vim.lsp.buf.clear_references()
+        end
+    end
 })
 
 -- inlay hints
