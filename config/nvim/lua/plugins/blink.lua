@@ -24,11 +24,11 @@ return {
                 nerd_font_variant = "mono",
             },
             sources = {
-                default = { "lsp", "path", "snippets", "buffer" },
-                providers = { snippets = { opts = { friendly_snippets = false } } },
+                default = { "lsp", "path", "snippets" },
+                providers = { snippets = { opts = { friendly_snippets = true } } },
             },
             fuzzy = { 
-                implementation = "prefer_rust_with_warning",
+                implementation = "prefer_rust",
                 max_typos = function(keyword) return math.floor(#keyword / 8) end,
                 sorts = {
                     -- kind priority:
@@ -36,6 +36,7 @@ return {
                     -- 2. variable
                     -- 3. methods
                     -- 4. function
+                    --[[
                     function(a, b)
                         local index = function(t, v)
                             for index, value in ipairs(t) do
@@ -43,7 +44,7 @@ return {
                             end
                             return 100 -- using 100 because it is unlikely that I have more than 100 priorities
                         end
-                        local kind = require('blink.cmp.types').CompletionItemKind
+                        local kind = vim.lsp.protocol.CompletionItemKind
                         local priority = { kind.Keyword, kind.Variable, kind.Method, kind.Function }
                         local aIn = index(priority, a)
                         local bIn = index(priority, b)
@@ -51,8 +52,10 @@ return {
                             return aIn > bIn
                         end
                     end,
+                    --]]
+                    'exact',
+                    'sort_text',
                     'score',
-                    'sort_text'
                 }
             },
             completion = {
@@ -77,8 +80,9 @@ return {
                     -- Show documentation automatically
                     auto_show = true,
                 },
+                accept = { auto_bracket = true },
             },
-            -- Signature help when tying
+            -- Signature help when typing
             signature = { enabled = true },
         },
         opts_extend = { "sources.default" },
