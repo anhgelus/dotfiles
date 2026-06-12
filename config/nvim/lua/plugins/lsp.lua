@@ -23,8 +23,6 @@ return {
                 "cssls", "emmet_ls", "html",
                 -- containers
                 "dockerls"
-                -- sql
-                -- "sqlfluff"
             },
         },
     },

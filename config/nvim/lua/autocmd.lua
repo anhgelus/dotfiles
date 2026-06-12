@@ -14,8 +14,9 @@ end
 auto_fmt({ "*.py" }, "Python", function(path) return "autopep8 -i " .. path end)
 auto_fmt({ "*.zig", "*.zig.zon" }, "Zig", function(path) return "zig fmt " .. path end)
 auto_fmt({ "*.hs" }, "Haskell", function(path) return "fourmolu " .. path .. " -i" end)
+auto_fmt({ "*.ml", "*.mli" }, "OCaml", function(_) return "dune fmt" end)
 
-local type_group = vim.api.nvim_create_augroup("FileType group", {})
+local type_group = vim.api.nvim_create_augroup("FileType group", { clear = true })
 
 function def_format(pattern, cmd)
     vim.api.nvim_create_autocmd({ "FileType" }, {
@@ -25,19 +26,21 @@ function def_format(pattern, cmd)
     })
 end
 
-function small_tab() 
+function small_indent() 
     vim.opt.tabstop = 2
     vim.opt.softtabstop = 2
     vim.opt.shiftwidth = 2
 end
 
+function small_tab() 
+    small_ident()
+    vim.opt.expandtab = false
+end
+
+-- tabs
 def_format("markdown", function() vim.opt.expandtab = false end) -- for scdoc
-def_format("yaml", small_tab)
-def_format("html", function()
-    small_tab()
-    vim.opt.expandtab = false
-end)
-def_format("css", function()
-    small_tab()
-    vim.opt.expandtab = false
-end)
+def_format("html", small_tab)
+def_format("css", small_tab)
+-- 2 spaces
+def_format("yaml", small_indent)
+def_format("ocaml", small_indent)

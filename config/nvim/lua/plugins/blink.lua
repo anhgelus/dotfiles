@@ -24,7 +24,7 @@ return {
                 nerd_font_variant = "mono",
             },
             sources = {
-                default = { "lsp", "path", "snippets" },
+                default = { "lsp", "path", "snippets", "buffer" },
                 providers = { snippets = { opts = { friendly_snippets = true } } },
             },
             fuzzy = { 
@@ -80,7 +80,6 @@ return {
                     -- Show documentation automatically
                     auto_show = true,
                 },
-                accept = { auto_bracket = true },
             },
             -- Signature help when typing
             signature = { enabled = true },
