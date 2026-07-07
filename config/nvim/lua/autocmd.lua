@@ -33,7 +33,7 @@ function small_indent()
 end
 
 function small_tab() 
-    small_ident()
+    small_indent()
     vim.opt.expandtab = false
 end
 

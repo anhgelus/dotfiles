@@ -20,9 +20,12 @@ return {
                 -- clojure
                 "clojure_lsp",
                 -- web
-                "cssls", "emmet_ls", "html",
+                "cssls", "emmet_language_server", "html",
                 -- containers
-                "dockerls"
+                "dockerls",
+                "tombi", 
+                "ocamllsp",
+                "hls",
             },
         },
     },
