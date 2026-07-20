@@ -26,13 +26,13 @@ function def_format(pattern, cmd)
     })
 end
 
-function small_indent() 
+function small_indent()
     vim.opt.tabstop = 2
     vim.opt.softtabstop = 2
     vim.opt.shiftwidth = 2
 end
 
-function small_tab() 
+function small_tab()
     small_indent()
     vim.opt.expandtab = false
 end
@@ -44,3 +44,4 @@ def_format("css", small_tab)
 -- 2 spaces
 def_format("yaml", small_indent)
 def_format("ocaml", small_indent)
+def_format("toml", small_indent)

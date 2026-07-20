@@ -1,5 +1,5 @@
-require('options')
 require('plugin')
+require('options')
 require('keybindings')
 require('autocmd')
 require('lsp')
