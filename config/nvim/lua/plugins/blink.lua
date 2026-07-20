@@ -4,7 +4,7 @@ return {
         -- optional: provides snippets for the snippet source
         -- dependencies = { "rafamadriz/friendly-snippets" },
 
-        version = "*",
+        version = "1.*",
         opts = {
             keymap = {
                 preset = "enter",
@@ -24,43 +24,35 @@ return {
                 nerd_font_variant = "mono",
             },
             sources = {
-                default = { "lsp", "path", "snippets", "buffer" },
-                providers = { snippets = { opts = { friendly_snippets = true } } },
+                --default = { "snippets", "lsp", "path", "buffer" },
+                default = function(ctx)
+                    local success, node = pcall(vim.treesitter.get_node)
+                    if success and node and vim.tbl_contains({ 'comment', 'line_comment', 'block_comment' }, node:type()) then
+                        return { 'buffer' }
+                    elseif vim.bo.filetype == 'markdown' then
+                        return { 'buffer' }
+                    else
+                        return { 'snippets', 'lsp', 'path', 'buffer' }
+                    end
+                end,
+                providers = { snippets = {
+                    should_show_items = function(ctx) return ctx.trigger.initial_kind ~= 'trigger_character' end,
+                    opts = { friendly_snippets = true },
+                } },
             },
-            fuzzy = { 
+            fuzzy = {
                 implementation = "prefer_rust",
-                max_typos = function(keyword) return math.floor(#keyword / 8) end,
+                max_typos = 0,
                 sorts = {
-                    -- kind priority:
-                    -- 1. keyword
-                    -- 2. variable
-                    -- 3. methods
-                    -- 4. function
-                    --[[
-                    function(a, b)
-                        local index = function(t, v)
-                            for index, value in ipairs(t) do
-                                if value == v then return index end
-                            end
-                            return 100 -- using 100 because it is unlikely that I have more than 100 priorities
-                        end
-                        local kind = vim.lsp.protocol.CompletionItemKind
-                        local priority = { kind.Keyword, kind.Variable, kind.Method, kind.Function }
-                        local aIn = index(priority, a)
-                        local bIn = index(priority, b)
-                        if aIn ~= bIn then
-                            return aIn > bIn
-                        end
-                    end,
-                    --]]
                     'exact',
                     'sort_text',
                     'score',
+                    'kind',
                 }
             },
             completion = {
                 -- The keyword should only match against the text before
-                keyword = { range = "prefix" },
+                keyword = { range = "full" },
                 list = {
                     selection = { preselect = true, auto_insert = false }
                 },
@@ -73,7 +65,7 @@ return {
                     },
                 },
                 -- Show completions after typing a trigger character, defined by the source
-                trigger = { 
+                trigger = {
                     show_on_trigger_character = true
                 },
                 documentation = {
