@@ -27,18 +27,18 @@ function def_format(pattern, cmd)
 end
 
 function small_indent()
-    vim.opt.tabstop = 2
-    vim.opt.softtabstop = 2
-    vim.opt.shiftwidth = 2
+    vim.opt_local.tabstop = 2
+    vim.opt_local.softtabstop = 2
+    vim.opt_local.shiftwidth = 2
 end
 
 function small_tab()
     small_indent()
-    vim.opt.expandtab = false
+    vim.opt_local.expandtab = false
 end
 
 -- tabs
-def_format("markdown", function() vim.opt.expandtab = false end) -- for scdoc
+def_format("markdown", function() vim.opt_local.expandtab = false end) -- for scdoc
 def_format("html", small_tab)
 def_format("css", small_tab)
 -- 2 spaces

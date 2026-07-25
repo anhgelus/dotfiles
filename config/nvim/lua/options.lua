@@ -17,7 +17,7 @@ vim.opt.smartcase = true            -- but make it case sensitive if an uppercas
 
 vim.opt.colorcolumn = "120"
 
-vim.opt.listchars = "nbsp:+,precedes:«,extends:»"
+vim.opt.listchars = "tab:  ,nbsp:+,precedes:«,extends:»"
 vim.opt.list = true
 vim.api.nvim_set_hl(0, "ExtraWhitespace", { ctermbg='Red', bg='Red' })
 vim.api.nvim_command([[ match ExtraWhitespace /\s\+$/ ]])

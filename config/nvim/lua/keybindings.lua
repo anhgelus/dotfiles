@@ -13,18 +13,18 @@ vim.keymap.set('n', '<C-W><Up>', '<C-W>j')
 vim.keymap.set('n', '<C-W><Down>', '<C-W>k')
 
 -- Neotree
-vim.keymap.set('n', '<space>t', function() 
+vim.keymap.set('n', '<space>t', function()
     require('neo-tree.command').execute({
         position = "float",
     })
 end)
-vim.keymap.set('n', '<space>b', function() 
+vim.keymap.set('n', '<space>b', function()
     require('neo-tree.command').execute({
         source = "buffers",
         position = "float",
     })
 end)
-vim.keymap.set('n', '<space>g', function() 
+vim.keymap.set('n', '<space>g', function()
     require('neo-tree.command').execute({
         source = "git_status",
         position = "float",
@@ -38,14 +38,14 @@ vim.keymap.set('n', 'gD', vim.lsp.buf.declaration)
 vim.keymap.set('n', 'gi', vim.lsp.buf.implementation)
 vim.keymap.set('n', 'go', vim.lsp.buf.type_definition)
 vim.keymap.set('n', 'gr', vim.lsp.buf.references)
--- show 
+-- show
 vim.keymap.set('n', 'ss', vim.lsp.buf.signature_help)
 vim.keymap.set('n', 'sh', vim.lsp.buf.hover)
 vim.keymap.set('n', 'se', vim.diagnostic.open_float)
 local custom_doc_cmd = {
     go = "go doc",
 }
-function do_doc(callback) 
+function do_doc(callback)
     local cmd = custom_doc_cmd[vim.bo.filetype]
     if cmd == nil then return end
     local buf = 'u'
@@ -76,7 +76,7 @@ function browse(selector)
     print(vim.fn.getreg('u'))
     vim.cmd('vert term reader "' .. vim.fn.getreg('u') .. '"')
 end
-vim.keymap.set('n', 'gx', function() 
+vim.keymap.set('n', 'gx', function()
     browse('W')
 end)
 vim.keymap.set('n', 'g(x', function()
