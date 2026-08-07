@@ -28,25 +28,27 @@ return {
                 default = function(ctx)
                     local success, node = pcall(vim.treesitter.get_node)
                     if success and node and vim.tbl_contains({ 'comment', 'line_comment', 'block_comment' }, node:type()) then
-                        return { 'buffer' }
-                    elseif vim.bo.filetype == 'markdown' then
-                        return { 'buffer' }
+                        return { 'buffer', 'path' }
                     else
-                        return { 'snippets', 'lsp', 'path', 'buffer' }
+                        return { 'lsp', 'snippets', 'path', 'buffer' }
                     end
                 end,
-                providers = { snippets = {
-                    should_show_items = function(ctx) return ctx.trigger.initial_kind ~= 'trigger_character' end,
-                    opts = { friendly_snippets = true },
-                } },
+                per_filetype = {
+                    markdown = { inherit_defaults = false, 'buffer', 'path' },
+                },
+                providers = {
+                    snippets = {
+                        should_show_items = function(ctx) return ctx.trigger.initial_kind ~= 'trigger_character' end,
+                        opts = { friendly_snippets = true },
+                    }
+                },
             },
             fuzzy = {
                 implementation = "prefer_rust",
                 max_typos = 0,
                 sorts = {
-                    'exact',
-                    'sort_text',
                     'score',
+                    'sort_text',
                     'kind',
                 }
             },

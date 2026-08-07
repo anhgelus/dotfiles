@@ -1,8 +1,8 @@
 {
-  "name": "personal-snippets",
-  "contributes": {
-    "snippets": [
-      { "language": "go", "path": "./go.json" }
-    ]
-  }
+	"name": "personal-snippets",
+	"contributes": {
+		"snippets": [
+			{ "language": "go", "path": "./go.json" }
+		]
+	}
 }

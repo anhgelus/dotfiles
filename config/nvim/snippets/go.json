@@ -1,10 +1,74 @@
 {
-  "if error": {
-    "prefix": "iferr",
-    "body": [
-      "if err != nil {",
-      "\t${1:return err}",
-      "}"
-    ]
-  }
+	"if error": {
+		"prefix": "iferr",
+		"body": [
+			"if err != nil {",
+			"\t${1:return err}",
+			"}"
+		]
+	},
+	"if": {
+		"prefix": "if",
+		"body": [
+			"if $1 {",
+			"\t$0",
+			"}"
+		]
+	},
+	"slog error": {
+		"prefix": "logerr",
+		"body": [
+			"slog.Error(\"$1\", \"error\", err)"
+		]
+	},
+	"function def": {
+		"prefix": "fn",
+		"body": [
+			"func $1($2) $3{",
+			"\t$0",
+			"}"
+		]
+	},
+	"method def": {
+		"prefix": "fnn",
+		"body": [
+			"func ($1) $2($3) $4{",
+			"\t$0",
+			"}"
+		]
+	},
+	"function def error": {
+		"prefix": "fnerr",
+		"body": [
+			"func $1($2) ($3, error){",
+			"\t$0",
+			"\treturn nil",
+			"}"
+		]
+	},
+	"test def": {
+		"prefix": "fntest",
+		"body": [
+			"func Test$1(t *testing.T) {",
+			"\t$0",
+			"}"
+		],
+		"include": ["**/*_test.go"]
+	},
+	"type struct": {
+		"prefix": "tpstruct",
+		"body": [
+			"type $1 struct {",
+			"\t$0",
+			"}"
+		]
+	},
+	"type interface": {
+		"prefix": "tpinter",
+		"body": [
+			"type $1 interface {",
+			"\t$0",
+			"}"
+		]
+	}
 }

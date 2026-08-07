@@ -41,6 +41,7 @@ end
 def_format("markdown", function() vim.opt_local.expandtab = false end) -- for scdoc
 def_format("html", small_tab)
 def_format("css", small_tab)
+def_format("json", small_tab)
 -- 2 spaces
 def_format("yaml", small_indent)
 def_format("ocaml", small_indent)
