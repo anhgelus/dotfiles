@@ -63,6 +63,14 @@
 			"}"
 		]
 	},
+	"anonymous func": {
+		"prefix": "fna",
+		"body": [
+			"func() {",
+			"\t$0",
+			"}()"
+		]
+	},
 	"type interface": {
 		"prefix": "tpinter",
 		"body": [

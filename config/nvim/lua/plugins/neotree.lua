@@ -13,7 +13,7 @@ return {
         default_component_configs = {
             indent = {
                 ident_size = 4,
-                padding = 2 
+                padding = 2,
             }
         },
         filesystem = {
@@ -53,6 +53,15 @@ return {
                 ["<d>"] = "delete",
                 ["<S-Up>"] = { "scroll_preview", config = {direction = 2} },
                 ["<S-Down>"] = { "scroll_preview", config = {direction = -2} },
+                -- git related
+                ["gA"]  = "git_add_all",
+                ["ga"] = "git_add_file",
+                ["gu"] = "git_unstage_file",
+                ["gU"] = "git_undo_last_commit",
+                ["gr"] = "git_revert_file",
+                ["gc"] = "git_commit",
+                ["gp"] = "git_push",
+                ["gg"] = "git_commit_and_push",
             }
         }
     }
