@@ -86,3 +86,12 @@
     #body
   ]
 }
+
+#let note(body) = {
+  callout(
+    emoji.pencil,
+    "Note",
+    (oklch(20%, 20%, 247deg), oklch(85%, 10%, 247deg, 50%)),
+    body,
+  )
+}

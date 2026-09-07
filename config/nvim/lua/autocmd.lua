@@ -42,7 +42,18 @@ def_format("markdown", function() vim.opt_local.expandtab = false end) -- for sc
 def_format("html", small_tab)
 def_format("css", small_tab)
 def_format("json", small_tab)
+def_format("sql", small_tab)
 -- 2 spaces
 def_format("yaml", small_indent)
 def_format("ocaml", small_indent)
 def_format("toml", small_indent)
+
+-- spell checking
+vim.api.nvim_create_autocmd({ "FileType" }, {
+    pattern = "typst,markdown",
+    callback = function()
+        vim.opt_local.spell = true
+        vim.opt_local.spelllang = "fr,en"
+    end,
+    group = type_group,
+})
