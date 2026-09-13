@@ -4,18 +4,26 @@ vim.opt.tabstop = 4                 -- number of visual spaces per TAB
 vim.opt.softtabstop = 4             -- number of spacesin tab when editing
 vim.opt.shiftwidth = 4              -- insert 4 spaces on a tab
 vim.opt.expandtab = true            -- tabs are spaces, mainly because of python
+vim.opt.autoindent = true
+vim.opt.copyindent = true
+vim.opt.breakindent = true
 
 vim.opt.number = true               -- show absolute number
 vim.opt.relativenumber = true       -- add numbers to each line on the left side
 vim.opt.cursorline = true           -- highlight cursor line underneath the cursor horizontally
+vim.opt.cursorlineopt = "screenline,number"
 vim.opt.splitbelow = true           -- open new vertical split bottom
 vim.opt.splitright = true           -- open new horizontal splits right
 
 vim.opt.incsearch = true            -- search as characters are entered
 vim.opt.ignorecase = true           -- ignore case in searches by default
 vim.opt.smartcase = true            -- but make it case sensitive if an uppercase is entered
+vim.opt.hlsearch = false
 
 vim.opt.colorcolumn = "120"
+
+vim.opt.wrap = false
+vim.opt.scrolloff = 3
 
 vim.opt.listchars = "tab:  ,nbsp:+,precedes:«,extends:»"
 vim.opt.list = true

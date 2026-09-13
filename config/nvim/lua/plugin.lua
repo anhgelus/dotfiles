@@ -16,3 +16,5 @@ vim.g.mapleader = " "
 vim.g.maplocalleader = "\\"
 
 require("lazy").setup("plugins")
+
+MiniIcons.mock_nvim_web_devicons()

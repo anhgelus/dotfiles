@@ -15,6 +15,7 @@ auto_fmt({ "*.py" }, "Python", function(path) return "autopep8 -i " .. path end)
 auto_fmt({ "*.zig", "*.zig.zon" }, "Zig", function(path) return "zig fmt " .. path end)
 auto_fmt({ "*.hs" }, "Haskell", function(path) return "fourmolu " .. path .. " -i" end)
 auto_fmt({ "*.ml", "*.mli" }, "OCaml", function(_) return "dune fmt" end)
+auto_fmt({ "*.ex", "*.exs" }, "Elixir", function(_) return "mix format" end)
 
 local type_group = vim.api.nvim_create_augroup("FileType group", { clear = true })
 
