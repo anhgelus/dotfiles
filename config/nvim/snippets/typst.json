@@ -1,0 +1,43 @@
+{
+	"definitions": {
+		"prefix": "defn",
+		"body": [
+			"#defn[",
+			"  $0",
+			"]"
+		]
+	},
+	"warning": {
+		"prefix": "warn",
+		"body": [
+			"#warning[",
+			"  $0",
+			"]"
+		]
+	},
+	"note": {
+		"prefix": "note",
+		"body": [
+			"#note[",
+			"  $0",
+			"]"
+		]
+	},
+	"template": {
+		"prefix": "template",
+		"body": [
+			"#import \"@local/template:1.0.0\": *",
+			"#import \"@local/callout:1.0.0\": *",
+			"",
+			"// initialize template",
+			"#show: doc.with(",
+			"  authors: (",
+			"    (name: \"William Hergès\", affiliation: \"Sorbonne Université\", email: \"william@herges.fr\"),",
+			"  ),",
+		  "  page_title: \"$1\","
+			")",
+			"",
+			"$0"
+		]
+	}
+}

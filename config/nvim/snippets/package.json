@@ -2,7 +2,8 @@
 	"name": "personal-snippets",
 	"contributes": {
 		"snippets": [
-			{ "language": "go", "path": "./go.json" }
+			{ "language": "go", "path": "./go.json" },
+			{ "language": "typst", "path": "./typst.json" }
 		]
 	}
 }
