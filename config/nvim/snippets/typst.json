@@ -3,24 +3,27 @@
 		"prefix": "defn",
 		"body": [
 			"#defn[",
-			"  $0",
-			"]"
+			"  $1",
+			"]",
+			"$0"
 		]
 	},
 	"warning": {
 		"prefix": "warn",
 		"body": [
 			"#warning[",
-			"  $0",
-			"]"
+			"  $1",
+			"]",
+			"$0"
 		]
 	},
 	"note": {
 		"prefix": "note",
 		"body": [
 			"#note[",
-			"  $0",
-			"]"
+			"  $1",
+			"]",
+			"$0"
 		]
 	},
 	"template": {
@@ -34,7 +37,7 @@
 			"  authors: (",
 			"    (name: \"William Hergès\", affiliation: \"Sorbonne Université\", email: \"william@herges.fr\"),",
 			"  ),",
-		  "  page_title: \"$1\","
+		  "  page_title: \"$1\",",
 			")",
 			"",
 			"$0"
