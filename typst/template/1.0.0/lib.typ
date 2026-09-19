@@ -27,7 +27,7 @@
   )
 
   show heading: set par(leading: 0.75em)
-  show heading: set text(font: "PT Astra Serif") 
+  show heading: set text(font: "PT Astra Serif")
   show heading.where(level: 1): set block(below: 1em)
   show heading.where(level: 1): set text(size: 1.25em)
   show heading.where(level: 2): set block(above: 3em, below: 1em)
@@ -68,14 +68,13 @@
       })
     )
   })
-    
 
   outline(title: "Table des matières")
 
   show heading.where(level: 1): it => {
     pagebreak(weak: true)
     it
-  } 
+  }
 
   doc
 }

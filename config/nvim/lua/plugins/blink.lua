@@ -34,13 +34,48 @@ return {
                     end
                 end,
                 per_filetype = {
-                    markdown = { inherit_defaults = false, 'buffer', 'path' },
+                    markdown = { inherit_defaults = false, 'snippets', 'write_buffer', 'lsp', 'path' },
+                    typst = { inherit_defaults = false, 'snippets', 'write_buffer', 'lsp', 'path' },
                 },
                 providers = {
                     snippets = {
                         should_show_items = function(ctx) return ctx.trigger.initial_kind ~= 'trigger_character' end,
                         opts = { friendly_snippets = true },
-                    }
+                    },
+                    write_buffer = {
+                        module = 'blink.cmp.sources.buffer',
+                        score_offset = -3,
+                        transform_items = function (a, items)
+                            local keyword = a.get_keyword()
+                            local correct, case
+                            if keyword:match('^%l') then
+                                correct = '^%u%l+$'
+                                case = string.lower
+                            elseif keyword:match('^%u') then
+                                correct = '^%l+$'
+                                case = string.upper
+                            else
+                                return items
+                            end
+
+                            -- avoid duplicates from the corrections
+                            local seen = {}
+                            local out = {}
+                            for _, item in ipairs(items) do
+                                local raw = item.insertText
+                                if raw:match(correct) then
+                                    local text = case(raw:sub(1,1)) .. raw:sub(2)
+                                    item.insertText = text
+                                    item.label = text
+                                end
+                                if not seen[item.insertText] then
+                                    seen[item.insertText] = true
+                                    table.insert(out, item)
+                                end
+                            end
+                            return out
+                        end
+                    },
                 },
             },
             fuzzy = {
