@@ -1,4 +1,4 @@
-#let doc(authors: (), page_title: [], doc) = {
+#let doc(authors: (), page_title: [], toc: true, heading_pagebreak: true, doc) = {
   // style
   set text(
     font: "Inter",
@@ -60,20 +60,27 @@
       gutter: 2em,
       align: center,
       ..authors.map(author => {
-        par(leading: 0.75em)[
-          #author.name \
-          #author.affiliation \
-          #link("mailto:" + author.email)
-        ]
+        let body = author.name
+        if author.at("affiliation", default: "") != "" {
+          body += "\n" + author.affiliation
+        }
+        if author.at("email", default: "") != "" {
+          body += "\n" + link("mailto:" + author.email)
+        }
+        par(body, leading: 0.75em)
       })
     )
   })
 
-  outline(title: "Table des matières")
+  if toc {
+    outline(title: "Table des matières")
+  }
 
-  show heading.where(level: 1): it => {
-    pagebreak(weak: true)
-    it
+  if heading_pagebreak {
+    show heading.where(level: 1): it => {
+      pagebreak(weak: true)
+      it
+    }
   }
 
   doc

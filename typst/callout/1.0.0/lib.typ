@@ -6,11 +6,11 @@
   )
   set text(fill: fontcolor)
   block(
-    width: 100%, 
-    inset: 1.5em, 
-    radius: 0.5em, 
+    width: 100%,
+    inset: 1.5em,
+    radius: 0.5em,
     breakable: false,
-    fill: bgcolor, 
+    fill: bgcolor,
     content
   )
 }
@@ -25,52 +25,52 @@
   ]
 }
 
-#let warning(body) = {
+#let warning(title: "Attention", body) = {
   callout(
-    emoji.warning, 
-    "Attention", 
+    emoji.warning,
+    title,
     (oklch(25%, 35%, 52.55deg), oklch(68.9%, 44%, 52.55deg, 15%)),
     body,
   )
 }
 
-#let solution(body) = {
+#let solution(title: "Solution", body) = {
   callout(
-    emoji.checkmark.box, 
-    "Solution",
-    (rgb("#2AA63D"), rgb("#DBFCE7"), rgb("#7AF0A8")), 
+    emoji.checkmark.box,
+    title,
+    (rgb("#2AA63D"), rgb("#DBFCE7"), rgb("#7AF0A8")),
     body,
   )
 }
 
-#let defn(body) = {
+#let defn(title: "Définition", body) = {
   callout(
     $Delta$,
-    "Définition", 
+    title,
     (oklch(20%, 20%, 247deg), oklch(75%, 25%, 247deg, 40%)),
     body,
   )
 }
 
-#let props(body) = {
+#let props(title: "Proposition", body) = {
   callout(
     $Pi$,
-    "Proposition", 
+    title,
     (oklch(20%, 20%, 247deg), oklch(85%, 10%, 247deg, 50%)),
     body,
   )
 }
 
-#let thm(body) = {
+#let thm(title: "Théorème", body) = {
   callout(
     $Tau$,
-    "Théorème", 
+    title,
     (oklch(20%, 20%, 220deg), oklch(80%, 25%, 220deg, 40%)),
     body,
   )
 }
 
-#let proof(body) = {
+#let proof(title_content: "Preuve", body) = {
   set par(
     leading: 0.5em,
     first-line-indent: 0em,
@@ -81,16 +81,16 @@
     stroke: (left: 1pt + black),
     inset: 1em,
   )[
-    #title("Preuve")
+    #title(title_content)
 
     #body
   ]
 }
 
-#let note(body) = {
+#let note(title: "Note", icon: emoji.pencil, body) = {
   callout(
-    emoji.pencil,
-    "Note",
+    icon,
+    title,
     (oklch(20%, 20%, 247deg), oklch(85%, 10%, 247deg, 50%)),
     body,
   )
