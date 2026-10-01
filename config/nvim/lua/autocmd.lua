@@ -6,13 +6,14 @@ function auto_fmt(pattern, desc, callback)
         desc = "Auto-format " .. desc .. " files after saving",
         callback = function()
             vim.cmd(":silent !" .. callback(vim.api.nvim_buf_get_name(0)))
+            vim.cmd("edit")
         end,
         group = formatter_group,
     })
 end
 
 auto_fmt({ "*.py" }, "Python", function(path) return "autopep8 -i " .. path end)
-auto_fmt({ "*.zig", "*.zig.zon" }, "Zig", function(path) return "zig fmt " .. path end)
+--auto_fmt({ "*.zig", "*.zig.zon" }, "Zig", function(path) return "zig fmt " .. path end)
 auto_fmt({ "*.hs" }, "Haskell", function(path) return "fourmolu " .. path .. " -i" end)
 auto_fmt({ "*.ml", "*.mli" }, "OCaml", function(_) return "dune fmt" end)
 auto_fmt({ "*.ex", "*.exs" }, "Elixir", function(_) return "mix format" end)

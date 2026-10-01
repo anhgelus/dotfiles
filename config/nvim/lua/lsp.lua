@@ -1,42 +1,33 @@
 vim.lsp.codelens.enable(not vim.lsp.codelens.is_enabled())
 
 local highlight_group = vim.api.nvim_create_augroup("UserLspHighlight", { clear = true })
-vim.api.nvim_create_autocmd({"CursorHold", "CursorHoldI"}, {
-    group = highlight_group,
-    callback = function(args)
-        if args.data == nil then return end
-        local client = vim.lsp.get_client_by_id(args.data.client_id)
-        if client.server_capabilities.documentHighlightProvider then
-            vim.lsp.buf.document_highlight()
-        end
-    end
-})
-vim.api.nvim_create_autocmd({"CursorMoved"}, {
-    callback = function(args)
-        if args.data == nil then return end
-        local client = vim.lsp.get_client_by_id(args.data.client_id)
-        if client.server_capabilities.documentHighlightProvider then
-            vim.lsp.buf.clear_references()
-        end
-    end
-})
-
-vim.api.nvim_create_autocmd("BufWritePre", {
-    group = vim.api.nvim_create_augroup("UserLspFormat", { clear = true }),
-    callback = function(args)
-        if args.data == nil then return end
-        local client = vim.lsp.get_client_by_id(args.data.client_id)
-        if client.supports_method("textDocument/formatting") then
-            vim.lsp.buf.format({async = false})
-        end
-    end
-})
+local fmt_grp = vim.api.nvim_create_augroup("UserLspFormat", { clear = true })
 
 vim.api.nvim_create_autocmd("LspAttach", {
     group = vim.api.nvim_create_augroup("UserLspConfig", {}),
     callback = function(args)
         local client = vim.lsp.get_client_by_id(args.data.client_id)
-        if client.server_capabilities.inlayHintProvider then
+        if client:supports_method("textDocument/documentHighlightProvider") then
+            vim.api.nvim_create_autocmd({"CursorHold", "CursorHoldI"}, {
+                group = highlight_group,
+                callback = vim.lsp.buf.document_highlight
+            })
+            vim.api.nvim_create_autocmd({"CursorMoved"}, {
+                group = highlight_group,
+                callback = vim.lsp.buf.clear_references
+            })
+        end
+        if not client:supports_method('textDocument/willSaveWaitUntil')
+            and client:supports_method('textDocument/formatting') then
+          vim.api.nvim_create_autocmd('BufWritePre', {
+            group = fmt_grp,
+            buffer = args.buf,
+            callback = function()
+              vim.lsp.buf.format({ bufnr = args.buf, id = client.id, timeout_ms = 1000 })
+            end,
+          })
+        end
+        if client:supports_method("textDocument/inlayHintProvider") then
             vim.lsp.inlay_hint.enable(true, { bufnr = args.buf })
         end
     end
@@ -66,6 +57,7 @@ vim.lsp.config("gopls", {
                 parameterNames = true,
                 rangeVariableTypes = true,
             },
+            completeUnimported = true,
         },
     },
 })
