@@ -76,11 +76,11 @@
     outline(title: "Table des matières")
   }
 
-  if heading_pagebreak {
-    show heading.where(level: 1): it => {
+  show heading.where(level: 1): it => {
+    if heading_pagebreak {
       pagebreak(weak: true)
-      it
     }
+    it
   }
 
   doc

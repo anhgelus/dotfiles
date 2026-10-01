@@ -13,22 +13,10 @@ vim.keymap.set('n', '<C-W><Up>', '<C-W>j')
 vim.keymap.set('n', '<C-W><Down>', '<C-W>k')
 
 -- Neotree
-vim.keymap.set('n', '<space>t', function()
-    require('neo-tree.command').execute({
+local neotree_cmd = require('neo-tree.command')
+vim.keymap.set('n', '<leader>t', function()
+    neotree_cmd.execute({
         position = "float",
-    })
-end)
-vim.keymap.set('n', '<space>b', function()
-    require('neo-tree.command').execute({
-        source = "buffers",
-        position = "float",
-    })
-end)
-vim.keymap.set('n', '<space>g', function()
-    require('neo-tree.command').execute({
-        source = "git_status",
-        position = "float",
-        reveal_force_cwd = true,
     })
 end)
 
@@ -61,10 +49,10 @@ vim.keymap.set('v', 'sd', function()
 end)
 -- utils
 vim.keymap.set('n', '<F2>', vim.lsp.buf.rename)
-vim.keymap.set('n', '<space>a', vim.lsp.buf.code_action)
-vim.keymap.set('n', '<space>r', vim.lsp.codelens.run)
+vim.keymap.set('n', '<leader>a', vim.lsp.buf.code_action)
+vim.keymap.set('n', '<leader>r', vim.lsp.codelens.run)
 
-vim.keymap.set('n', '<space>h', function()
+vim.keymap.set('n', '<leader>h', function()
   vim.lsp.inlay_hint.enable(
     not vim.lsp.inlay_hint.is_enabled({ bufnr = 0 }),
     { bufnr = 0 }
@@ -82,3 +70,9 @@ end)
 vim.keymap.set('n', 'g(x', function()
     browse('(')
 end)
+
+-- Telescope
+local telescope = require('telescope.builtin')
+vim.keymap.set('n', '<leader>f', telescope.find_files)
+vim.keymap.set('n', '<leader>b', telescope.buffers)
+vim.keymap.set('n', '<leader>g', telescope.live_grep)

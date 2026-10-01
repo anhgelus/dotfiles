@@ -6,7 +6,7 @@ return {
             "neovim/nvim-lspconfig",
         },
         opts = {
-            ensure_installed = { 
+            ensure_installed = {
                 -- python
                 "ty",
                 -- go
@@ -23,7 +23,7 @@ return {
                 "cssls", "emmet_language_server", "html",
                 -- containers
                 "dockerls",
-                "tombi", 
+                "tombi",
                 "ocamllsp",
                 "hls",
             },

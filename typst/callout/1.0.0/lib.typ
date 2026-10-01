@@ -15,7 +15,7 @@
   )
 }
 
-#let title(content) = text(size: 1.15em, strong(content))
+#let title(content, color: luma(0)) = text(size: 1.15em, strong(content), fill: color)
 
 #let callout(icon, title_content, colors, content) = {
   emptyblock(colors)[
@@ -70,23 +70,6 @@
   )
 }
 
-#let proof(title_content: "Preuve", body) = {
-  set par(
-    leading: 0.5em,
-    first-line-indent: 0em,
-    spacing: 1.2em,
-  )
-  set text(size: 0.9em, fill: luma(70))
-  block(
-    stroke: (left: 1pt + black),
-    inset: 1em,
-  )[
-    #title(title_content)
-
-    #body
-  ]
-}
-
 #let note(title: "Note", icon: emoji.pencil, body) = {
   callout(
     icon,
@@ -95,3 +78,24 @@
     body,
   )
 }
+
+#let small_callout(title_content, color, body) = {
+  set par(
+    leading: 0.5em,
+    first-line-indent: 0em,
+    spacing: 1.2em,
+  )
+  set text(size: 0.9em, fill: color)
+  block(
+    stroke: (left: 1pt + black),
+    inset: 1em,
+  )[
+    #title(title_content, color: color)
+
+    #body
+  ]
+}
+
+#let proof(title_content: "Preuve", body) = small_callout(title_content, luma(50), body)
+
+#let quote(source, body) = small_callout(source, luma(50), body)

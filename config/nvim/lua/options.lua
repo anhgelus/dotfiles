@@ -24,6 +24,7 @@ vim.opt.colorcolumn = "120"
 
 vim.opt.wrap = false
 vim.opt.scrolloff = 3
+vim.opt.textwidth = 120
 
 vim.opt.listchars = "tab:  ,nbsp:+,precedes:«,extends:»"
 vim.opt.list = true
