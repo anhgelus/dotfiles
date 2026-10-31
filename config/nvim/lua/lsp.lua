@@ -7,7 +7,7 @@ vim.api.nvim_create_autocmd("LspAttach", {
     group = vim.api.nvim_create_augroup("UserLspConfig", {}),
     callback = function(args)
         local client = vim.lsp.get_client_by_id(args.data.client_id)
-        if client:supports_method("textDocument/documentHighlightProvider") then
+        if client:supports_method("textDocument/documentHighlight") then
             vim.api.nvim_create_autocmd({"CursorHold", "CursorHoldI"}, {
                 group = highlight_group,
                 callback = vim.lsp.buf.document_highlight
@@ -70,7 +70,7 @@ vim.lsp.config("zls", {
             inlay_hints_show_variable_type_hints = true,
             inlay_hints_show_struct_literal_field_type = true,
             inlay_hints_exclude_single_argument = true,
-            inlay_hints_hide_redundant_param_names = false,
+            inlay_hints_hide_redundant_param_names = true,
             inlay_hints_hide_redundant_param_names_last_token = false,
         },
     },
@@ -82,3 +82,5 @@ vim.lsp.config("hls", {
         }
     }
 })
+
+vim.lsp.enable("gopls")

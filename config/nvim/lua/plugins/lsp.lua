@@ -9,8 +9,6 @@ return {
             ensure_installed = {
                 -- python
                 "ty",
-                -- go
-                "gopls",
                 -- typst
                 "tinymist",
                 -- C

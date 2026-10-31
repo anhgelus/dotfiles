@@ -1,8 +1,8 @@
 return {
-    { 
-        "catppuccin/nvim", 
+    {
+        "catppuccin/nvim",
         name = "catppuccin",
-        integrations = { blink_cmp = true} 
+        integrations = { blink_cmp = true}
     },
     {
         "f-person/auto-dark-mode.nvim",
