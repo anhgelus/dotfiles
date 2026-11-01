@@ -58,22 +58,10 @@ vim.keymap.set('n', '<leader>h', function()
     { bufnr = 0 }
   )
 end)
--- web browsing
-function browse(selector)
-    vim.cmd.normal {'"uyi' .. selector, bang = true}
-    print(vim.fn.getreg('u'))
-    vim.cmd('vert term reader "' .. vim.fn.getreg('u') .. '"')
-end
-vim.keymap.set('n', 'gx', function()
-    browse('W')
-end)
-vim.keymap.set('n', 'g(x', function()
-    browse('(')
-end)
 
 -- Telescope
 local telescope = require('telescope.builtin')
 vim.keymap.set('n', '<leader>f', telescope.find_files)
 vim.keymap.set('n', '<leader>b', telescope.buffers)
 vim.keymap.set('n', '<leader>g', telescope.live_grep)
-vim.keymap.set('n', '<leader>s', telescope.lsp_document_symbols)
+vim.keymap.set('n', '<leader>s', telescope.treesitter)
