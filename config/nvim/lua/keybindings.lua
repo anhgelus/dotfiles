@@ -12,14 +12,6 @@ vim.keymap.set('n', '<C-W><Right>', '<C-W>l')
 vim.keymap.set('n', '<C-W><Up>', '<C-W>j')
 vim.keymap.set('n', '<C-W><Down>', '<C-W>k')
 
--- Neotree
-local neotree_cmd = require('neo-tree.command')
-vim.keymap.set('n', '<leader>t', function()
-    neotree_cmd.execute({
-        position = "float",
-    })
-end)
-
 -- go to
 vim.keymap.set('n', 'gd', vim.lsp.buf.definition)
 vim.keymap.set('n', 'gD', vim.lsp.buf.declaration)
@@ -60,8 +52,14 @@ vim.keymap.set('n', '<leader>h', function()
 end)
 
 -- Telescope
-local telescope = require('telescope.builtin')
-vim.keymap.set('n', '<leader>f', telescope.find_files)
-vim.keymap.set('n', '<leader>b', telescope.buffers)
-vim.keymap.set('n', '<leader>g', telescope.live_grep)
-vim.keymap.set('n', '<leader>s', telescope.treesitter)
+local telescope = require("telescope")
+local telescope_builtin = require("telescope.builtin")
+vim.keymap.set('n', '<leader>f', telescope_builtin.find_files)
+vim.keymap.set('n', '<leader>b', telescope_builtin.buffers)
+vim.keymap.set('n', '<leader>g', telescope_builtin.live_grep)
+vim.keymap.set('n', '<leader>s', telescope_builtin.treesitter)
+
+telescope.load_extension("file_browser")
+vim.keymap.set('n', '<leader>t', telescope.extensions.file_browser.file_browser)
+
+telescope.load_extension("ui-select")
