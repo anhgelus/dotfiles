@@ -50,6 +50,18 @@ vim.keymap.set('n', '<leader>h', function()
     { bufnr = 0 }
   )
 end)
+-- web browsing
+function browse(selector)
+    vim.cmd.normal {'"uyi' .. selector, bang = true}
+    print(vim.fn.getreg('u'))
+    vim.cmd('vert term reader "' .. vim.fn.getreg('u') .. '"')
+end
+vim.keymap.set('n', 'gx', function()
+    browse('W')
+end)
+vim.keymap.set('n', 'g(x', function()
+    browse('(')
+end)
 
 -- Telescope
 local telescope = require("telescope")
@@ -57,7 +69,7 @@ local telescope_builtin = require("telescope.builtin")
 vim.keymap.set('n', '<leader>f', telescope_builtin.find_files)
 vim.keymap.set('n', '<leader>b', telescope_builtin.buffers)
 vim.keymap.set('n', '<leader>g', telescope_builtin.live_grep)
-vim.keymap.set('n', '<leader>s', telescope_builtin.treesitter)
+vim.keymap.set('n', '<leader>s', telescope_builtin.lsp_document_symbols)
 
 telescope.load_extension("file_browser")
 vim.keymap.set('n', '<leader>t', telescope.extensions.file_browser.file_browser)
