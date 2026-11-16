@@ -1,0 +1,5 @@
+require('anhgelus.plugin')
+require('anhgelus.options')
+require('anhgelus.keybindings')
+require('anhgelus.lsp')
+require('anhgelus.colors')

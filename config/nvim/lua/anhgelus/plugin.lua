@@ -15,6 +15,6 @@ vim.opt.rtp:prepend(lazypath)
 vim.g.mapleader = " "
 --vim.g.maplocalleader = "\\"
 
-require("lazy").setup("plugins")
+require("lazy").setup("anhgelus.plugins")
 
 MiniIcons.mock_nvim_web_devicons()
